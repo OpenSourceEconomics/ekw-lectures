@@ -1,0 +1,21 @@
+figure.max_open_warning: 0
+figure.autolayout: True
+figure.figsize: 12, 8
+
+font.size: 20
+lines.linewidth: 5
+image.cmap: jet
+
+axes.labelsize : 15
+axes.titlesize : 15
+
+axes.spines.right: False
+axes.spines.left: True
+axes.spines.top: False
+axes.spines.bottom: True
+
+legend.fancybox: True
+legend.frameon: False
+legend.shadow: False
+
+savefig.dpi: 300

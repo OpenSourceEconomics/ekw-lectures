@@ -1,0 +1,23 @@
+name: respy-lectures
+
+channels:
+  - defaults
+  - conda-forge
+  - janosg
+
+dependencies:
+- python=3.6
+- pip
+- numpy
+- pandas=0.24
+- pytest
+- jupyterlab
+- matplotlib
+- seaborn
+- scipy
+- estimagic>=0.0.14
+- black
+- flake8
+- doc8
+- restructuredtext_lint
+- tox-conda
