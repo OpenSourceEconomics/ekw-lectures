@@ -5,22 +5,14 @@ import pandas as pd
 import respy as rp
 import numpy as np
 
-def plot_profile_likelihood(params_base, options_base, df):
+def plot_profile_likelihood(rslts, params_base):
     
-    crit_func = rp.get_crit_func(params_base, options_base, df)
+    for index, fvals in rslts.items():
+        fig, ax = plt.subplots()
 
-    for index in params_base.index:
-
+        
         upper, lower = params_base.loc[index][["upper", "lower"]]
         grid = np.linspace(lower, upper, 20)
-
-        fvals = list()
-        for value in grid:
-            params = params_base.copy()
-            params.loc[index, "value"] = value
-            fvals.append(crit_func(params))
-
-        fig, ax = plt.subplots()
 
         ax.axvline(params_base.loc[index, "value"], color="#A9A9A9", linestyle="--", label="Baseline")
         ax.plot(grid, np.array(fvals) - np.max(fvals))
