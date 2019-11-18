@@ -15,7 +15,7 @@ def plot_profile_likelihood(rslts, params_base):
         grid = np.linspace(lower, upper, 20)
 
         ax.axvline(params_base.loc[index, "value"], color="#A9A9A9", linestyle="--", label="Baseline")
-        ax.plot(grid, np.array(fvals) - np.max(fvals))
+        ax.plot(grid, np.array(fvals) / np.max(fvals))
         ax.set_title(index)
         plt.show()
         
