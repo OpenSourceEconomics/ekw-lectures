@@ -16,8 +16,8 @@ for num_agents in GRID_AGENTS:
 index = pd.MultiIndex.from_tuples(index, names=("agents", "draws", "tau"))
 rslts = pd.DataFrame(index=index, columns=["delta"])
 
-
 params_base, options_base = rp.get_example_model("robinson", False)
+delta_true = params_base.loc[("delta", "delta"), "value"]
 
 for num_agents in GRID_AGENTS:
 
@@ -37,7 +37,7 @@ for num_agents in GRID_AGENTS:
             options["simulation_agents"] = num_agents
 
             crit_func = rp.get_crit_func(params_base, options, df)
-            grid = np.linspace(0.948, 0.952, 20)
+            grid = np.concatenate((np.linspace(0.948, 0.952, 40), [delta_true]))
 
             fvals = list()
             for value in grid:
