@@ -13,7 +13,7 @@ NUM_DRAWS = 1000
 EPS = np.sqrt(np.finfo(float).eps)
 
 
-def wrapper_crit_func(crit_func, params_base, index, values):
+def wrapper_crit_func(crit_func, options_base, params_base, index, values):
     if isinstance(values, float):
         values = [values]
 
@@ -22,7 +22,7 @@ def wrapper_crit_func(crit_func, params_base, index, values):
     fvals = list()
     for value in values:
         params.loc[index, "value"] = value
-        fvals.append(crit_func(params))
+        fvals.append(options_base["simulation_agents"] * crit_func(params))
 
     if len(fvals) == 1:
         fvals = fvals[0]
@@ -46,7 +46,7 @@ for index in INDICES:
         boot_df = simulate(params_base)
 
         crit_func = rp.get_crit_func(params_base, options, boot_df)
-        p_wrapper_crit_func = partial(wrapper_crit_func, crit_func, params_base, index)
+        p_wrapper_crit_func = partial(wrapper_crit_func, crit_func, options_base, params_base, index)
 
         point = params_base.loc[index, "value"]
         fd = approx_fprime([point], p_wrapper_crit_func, EPS)[0]
