@@ -31,6 +31,18 @@ def plot_score_function(norm_grid, norm_fds):
     plt.show()
     
 
+def plot_computational_budget(grid, rslts):
+    
+    fig, ax = plt.subplots()
+
+    ax.plot(grid, rslts)
+    
+    ax.set_ylabel("Seconds")
+    ax.set_xlabel("Evaluation points")
+    
+    plt.show()
+
+
 def plot_bootstrap_distribution():
     
     index = ("delta", "delta")
