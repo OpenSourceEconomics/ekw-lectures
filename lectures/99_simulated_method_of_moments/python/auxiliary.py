@@ -59,12 +59,15 @@ def get_moments(df, choice_options):
     
     # Describe wages to extract wage mean and std.
     info_period = df_grouped_period['Wage'].describe() 
-    # Initialize wage dictionary with period as keys and add mean and std for each period.
+    # Initialize wage dictionary with periods as keys and add mean and std for each period.
     wages_dict = dict.fromkeys(info_period.index.to_list())
-    for key in info_period.index.to_list():                
-            wages_dict[key] = (info_period.loc[key,'mean'],info_period.loc[key,'std'])
-    
-    # Add wage mean and std to moments dict.
+    for period in info_period.index.to_list():                
+            # Add mean and std for each period.
+            wages_dict[period] = (info_period.loc[period,'mean'], info_period.loc[period,'std'])
+            # Remove moments that are missing.
+            wages_dict[period] = [i for i in wages_dict[period] if str(i) != 'nan']
+            
+    # Add wage dictionaryto  moments dict.
     moments_dict['Wage Distribution'] = wages_dict
     
     return moments_dict
