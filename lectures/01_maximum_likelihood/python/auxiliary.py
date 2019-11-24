@@ -15,7 +15,7 @@ def plot_profile_likelihood(rslts, params_base):
         grid = np.linspace(lower, upper, 20)
 
         ax.axvline(params_base.loc[index, "value"], color="#A9A9A9", linestyle="--", label="Baseline")
-        ax.plot(grid, np.array(fvals) / np.max(fvals))
+        ax.plot(grid, np.array(fvals) - np.max(fvals))
         ax.set_title(index)
         plt.show()
         
@@ -30,6 +30,18 @@ def plot_score_function(norm_grid, norm_fds):
 
     plt.show()
     
+
+def plot_computational_budget(grid, rslts):
+    
+    fig, ax = plt.subplots()
+
+    ax.plot(grid, rslts)
+    
+    ax.set_ylabel("Seconds")
+    ax.set_xlabel("Evaluation points")
+    
+    plt.show()
+
 
 def plot_bootstrap_distribution():
     

@@ -8,6 +8,7 @@ from estimagic.optimization.optimize import maximize
 from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
+
 def get_bootstrap_sample(df, seed=None):
     
     np.random.seed(seed)
@@ -29,7 +30,6 @@ def get_bootstrap_sample(df, seed=None):
 def run_bootstrap(df, params, options, constr, num_boots, is_perturb=False):
 
     boot_params = pd.DataFrame(index=params.index)
-    identifiers = df["Identifier"].unique()
 
     for iter_ in range(num_boots):
 
