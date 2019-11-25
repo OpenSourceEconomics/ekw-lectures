@@ -25,9 +25,10 @@ def plot_score_function(norm_grid, norm_fds):
 
     ax.set_title("$\delta$")
 
-    ax.plot(norm_grid, norm_fds)
-    ax.plot(norm_grid, norm_grid)
-
+    ax.plot(norm_grid, norm_fds, label="gradient")
+    ax.plot(norm_grid, norm_grid, label="benchmark")
+    ax.legend()
+    
     plt.show()
     
 
