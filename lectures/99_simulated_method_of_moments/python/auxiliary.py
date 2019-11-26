@@ -145,12 +145,10 @@ def plot_criterion_detail(params, criterion_args):
        
         # Plot criterion function for the calculated values. 
         plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
-        #plt.grid(which='major')
-        plt.plot(x_grid, fvals_grid, ".")
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_name)
         plt.ylabel('Criterion Function')
-        plt.show()
+    plt.show()
         
         
         
@@ -176,9 +174,7 @@ def plot_criterion_params(params, criterion_args):
        
         # Plot criterion function for the calculated values. 
         plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
-        #plt.grid(which='major')
-        plt.plot(x_grid, fvals_grid, ".")
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_names[idx])
         plt.ylabel('Criterion Function')    
-        plt.show()
+    plt.show()
