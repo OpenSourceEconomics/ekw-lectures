@@ -1,0 +1,16 @@
+language: python
+
+python:
+  - 3.6
+
+bundler_args: --retry 3
+
+install:
+  - sudo apt-get update
+  - ./configurations/travis/miniconda.sh
+  - PATH="$HOME/miniconda/bin:$PATH"
+  - conda env create -f configurations/environment.yml
+
+script:
+  - source .envrc
+  - run-notebooks

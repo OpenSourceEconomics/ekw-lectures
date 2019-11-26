@@ -3,7 +3,7 @@ import respy as rp
 import numpy as np
 
 
-GRID_TAU = [0.01, 0.001, 0.0001, 0.00001]
+GRID_TAU = [0.01, 0.001, 0.0001, 0.00001, 0.000001, 0.0000001]
 GRID_AGENTS = [100, 1000, 10000]
 GRID_DRAWS = [100, 1000, 10000]
 

@@ -25,11 +25,24 @@ def plot_score_function(norm_grid, norm_fds):
 
     ax.set_title("$\delta$")
 
-    ax.plot(norm_grid, norm_fds)
-    ax.plot(norm_grid, norm_grid)
-
+    ax.plot(norm_grid, norm_fds, label="gradient")
+    ax.plot(norm_grid, norm_grid, label="benchmark")
+    ax.legend()
+    
     plt.show()
     
+
+def plot_computational_budget(grid, rslts):
+    
+    fig, ax = plt.subplots()
+
+    ax.plot(grid, rslts)
+    
+    ax.set_ylabel("Seconds")
+    ax.set_xlabel("Evaluation points")
+    
+    plt.show()
+
 
 def plot_bootstrap_distribution():
     
