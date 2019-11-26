@@ -105,7 +105,7 @@ def evaluate(params_cand, options, weighting_matrix, moments_obs, choice_options
     return fval
 
 
-def plot_criterion_detail(params, param_name, lbounds, ubounds, xticks_steps, detail, criterion_args):
+def plot_criterion_detail(params, criterion_args):
     """ Plots criterion function for one or multiple ranges of values for a single parameter in the model.
     Args:
     params(pd.DataFrame): Dataframe containing the parameters in the model.
@@ -124,8 +124,13 @@ def plot_criterion_detail(params, param_name, lbounds, ubounds, xticks_steps, de
     --------------------------------------------------------------------------------------------------------------------
     """
     params = params.copy()
-    #plt.figure(figsize=(8, 12), dpi=70, facecolor='w', edgecolor='k')
-    #plt.subplots_adjust(wspace=0.4) 
+
+    param_name = 'delta' 
+    lbounds = [0.93, 0.9499]
+    ubounds = [0.97, 0.9501]
+    xticks_steps = [0.005, 0.00005]
+    detail = 20
+
     
     for idx in range(len(lbounds)):
         # Position of subplot
@@ -145,22 +150,28 @@ def plot_criterion_detail(params, param_name, lbounds, ubounds, xticks_steps, de
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_name)
         plt.ylabel('Criterion Function')
-
+        plt.show()
         
-def plot_criterion_params(parameters, param_names, lbounds, ubounds, xticks_steps, detail, criterion_args):
-    #plt.figure(figsize=(8, 16), dpi=70, facecolor='w', edgecolor='k')
-    #plt.subplots_adjust(wspace=0.4) 
+        
+        
+def plot_criterion_params(params, criterion_args): 
+    
+    param_names = ['delta', 'wage_fishing', 'nonpec_fishing', 'nonpec_hammock', ('shocks_sdcorr, sd_fishing'), ('shocks_sdcorr, sd_hammock'), ('shocks_sdcorr, corr_hammock_fishing')]
+    lbounds = [0.93, 0.069, -0.11, 1.02, 0.008, 0.008, -0.1] 
+    ubounds = [0.97, 0.071, -0.09, 1.054, 0.012, 0.012, 0.1] 
+    xticks_steps = [0.005 ,0.0005, 0.005, 0.005, 0.0005, 0.0005, 0.05] 
+    detail = 20     
     
     for idx in range(len(param_names)):        
-        params = parameters.copy()
+        parameters = params.copy()
         # Position of subplot
         plt.subplot(len(param_names), 1, idx+1)
         # Define grid of parameter values and calculate the criterion function value for this grid.
         x_grid = np.linspace(lbounds[idx], ubounds[idx], detail)
         fvals_grid = ([])
         for param in x_grid:
-            params.loc[param_names[idx],'value'] = param
-            fval = evaluate(params, *criterion_args)
+            parameters.loc[param_names[idx],'value'] = param
+            fval = evaluate(parameters, *criterion_args)
             fvals_grid.append(fval)
        
         # Plot criterion function for the calculated values. 
@@ -169,4 +180,5 @@ def plot_criterion_params(parameters, param_names, lbounds, ubounds, xticks_step
         plt.plot(x_grid, fvals_grid, ".")
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_names[idx])
-        plt.ylabel('Criterion Function')        
+        plt.ylabel('Criterion Function')    
+        plt.show()
