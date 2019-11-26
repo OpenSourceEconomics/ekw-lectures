@@ -1,4 +1,0 @@
-[submodule "submodules/respy"]
-	path = submodules/respy
-	url = https://github.com/OpenSourceEconomics/respy.git
-	branch = crusoe
