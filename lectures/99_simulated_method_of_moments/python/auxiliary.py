@@ -105,7 +105,7 @@ def evaluate(params_cand, options, weighting_matrix, moments_obs, choice_options
     return fval
 
 
-def plot_criterion_fun(params, param_name, lbounds, ubounds, xticks_steps, detail, criterion_args):
+def plot_criterion_detail(params, param_name, lbounds, ubounds, xticks_steps, detail, criterion_args):
     """ Plots criterion function for one or multiple ranges of values for a single parameter in the model.
     Args:
     params(pd.DataFrame): Dataframe containing the parameters in the model.
@@ -145,3 +145,28 @@ def plot_criterion_fun(params, param_name, lbounds, ubounds, xticks_steps, detai
         plt.plot(x_grid, fvals_grid, color="orange")
         plt.xlabel(param_name)
         plt.ylabel('Criterion Function')
+
+        
+def plot_criterion_params(parameters, param_names, lbounds, ubounds, xticks_steps, detail, criterion_args):
+    plt.figure(figsize=(8, 16), dpi=70, facecolor='w', edgecolor='k')
+    plt.subplots_adjust(wspace=0.4) 
+    
+    for idx in range(len(param_names)):        
+        params = parameters.copy()
+        # Position of subplot
+        plt.subplot(len(param_names), 1, idx+1)
+        # Define grid of parameter values and calculate the criterion function value for this grid.
+        x_grid = np.linspace(lbounds[idx], ubounds[idx], detail)
+        fvals_grid = ([])
+        for param in x_grid:
+            params.loc[param_names[idx],'value'] = param
+            fval = evaluate(params, *criterion_args)
+            fvals_grid.append(fval)
+       
+        # Plot criterion function for the calculated values. 
+        plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
+        plt.grid(which='major')
+        plt.plot(x_grid, fvals_grid, ".")
+        plt.plot(x_grid, fvals_grid)
+        plt.xlabel(param_names[idx])
+        plt.ylabel('Criterion Function')        
