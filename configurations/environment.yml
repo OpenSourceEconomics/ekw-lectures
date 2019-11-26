@@ -2,8 +2,8 @@ name: respy-lectures
 
 channels:
   - defaults
+  - opensourceeconomics
   - conda-forge
-  - janosg
 
 dependencies:
 - python=3.6
@@ -21,3 +21,4 @@ dependencies:
 - doc8
 - restructuredtext_lint
 - tox-conda
+- respy
