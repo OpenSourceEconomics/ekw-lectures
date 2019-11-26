@@ -2,6 +2,7 @@ name: respy-lectures
 
 channels:
   - defaults
+  - opensourceeconomics
   - conda-forge
 
 dependencies:
