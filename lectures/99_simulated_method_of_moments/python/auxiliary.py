@@ -124,8 +124,8 @@ def plot_criterion_detail(params, param_name, lbounds, ubounds, xticks_steps, de
     --------------------------------------------------------------------------------------------------------------------
     """
     params = params.copy()
-    plt.figure(figsize=(8, 12), dpi=70, facecolor='w', edgecolor='k')
-    plt.subplots_adjust(wspace=0.4) 
+    #plt.figure(figsize=(8, 12), dpi=70, facecolor='w', edgecolor='k')
+    #plt.subplots_adjust(wspace=0.4) 
     
     for idx in range(len(lbounds)):
         # Position of subplot
@@ -140,16 +140,16 @@ def plot_criterion_detail(params, param_name, lbounds, ubounds, xticks_steps, de
        
         # Plot criterion function for the calculated values. 
         plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
-        plt.grid(which='major')
+        #plt.grid(which='major')
         plt.plot(x_grid, fvals_grid, ".")
-        plt.plot(x_grid, fvals_grid, color="orange")
+        plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_name)
         plt.ylabel('Criterion Function')
 
         
 def plot_criterion_params(parameters, param_names, lbounds, ubounds, xticks_steps, detail, criterion_args):
-    plt.figure(figsize=(8, 16), dpi=70, facecolor='w', edgecolor='k')
-    plt.subplots_adjust(wspace=0.4) 
+    #plt.figure(figsize=(8, 16), dpi=70, facecolor='w', edgecolor='k')
+    #plt.subplots_adjust(wspace=0.4) 
     
     for idx in range(len(param_names)):        
         params = parameters.copy()
@@ -165,7 +165,7 @@ def plot_criterion_params(parameters, param_names, lbounds, ubounds, xticks_step
        
         # Plot criterion function for the calculated values. 
         plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
-        plt.grid(which='major')
+        #plt.grid(which='major')
         plt.plot(x_grid, fvals_grid, ".")
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_names[idx])
