@@ -178,3 +178,47 @@ def plot_criterion_params(params, criterion_args):
         plt.xlabel(param_names[idx])
         plt.ylabel('Criterion Function')    
     plt.show()
+    
+    
+    
+def plot_moments_choices(moments_obs, moments_sim):
+    
+    moments = [moments_obs, moments_sim]
+    titles = ["Data Moments", "Simulated Moments"]
+    
+    for idx in [0,1]:
+        df = pd.DataFrame(moments[idx]['Choice Probabilities']).transpose()
+        df = df.rename(columns={0: "fishing", 1: "hammock"})
+
+        plt.subplot(1, 2, idx+1)
+        plt.ylim((0,1))
+        plt.title(titles[idx])
+        plt.plot(pd.DataFrame(moments[idx]['Choice Probabilities']).transpose())
+        plt.xlabel("Period")
+        plt.ylabel("Choice Proportion")
+        if idx == 1:
+            plt.legend(df.columns, loc="best")
+    
+    plt.show()
+    
+    
+def plot_moments_wage(moments_obs, moments_sim):
+    
+    df_sim = pd.DataFrame(moments_sim['Wage Distribution']).transpose()    
+    df_obs = pd.DataFrame(moments_obs['Wage Distribution']).transpose()    
+    
+    plt.subplot(1, 2, 1)
+    plt.title('Mean')
+    plt.plot(df_obs[0])
+    plt.plot(df_sim[0])
+    plt.xlabel('Period')
+    
+    plt.subplot(1, 2, 2)
+    plt.title('Std')
+    plt.plot(df_obs[1], label = "observed")
+    plt.plot(df_sim[1], label = "simulated")
+    plt.legend(loc="best")
+    plt.xlabel('Period')
+
+    
+    plt.show()
