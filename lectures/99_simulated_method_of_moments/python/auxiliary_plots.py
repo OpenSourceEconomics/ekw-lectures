@@ -1,7 +1,6 @@
 """ Auxiliary file containing functions for plots for the notebook on simulated method of moments estimation.
 """
 
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -14,13 +13,13 @@ def plot_criterion_params(params, criterion_args):
     param_names = ['delta', 'wage_fishing', 'nonpec_fishing', 'nonpec_hammock', ('shocks_sdcorr, sd_fishing'), ('shocks_sdcorr, sd_hammock'), ('shocks_sdcorr, corr_hammock_fishing')]
     lbounds = [0.93, 0.069, -0.11, 1.02, 0.008, 0.008, -0.1] 
     ubounds = [0.97, 0.071, -0.09, 1.054, 0.012, 0.012, 0.1] 
-    xticks_steps = [0.005 ,0.0005, 0.005, 0.005, 0.0005, 0.0005, 0.05] 
+    xticks_steps = [0.005 ,0.0005, 0.005, 0.005, 0.001, 0.001, 0.05] 
     detail = 20     
+    true_values = [0.95, 0.07, -0.1, 1.046, 0.01, 0.01, 0]
+    
     
     for idx in range(len(param_names)):        
         parameters = params.copy()
-        # Position of subplot
-        plt.subplot(len(param_names), 1, idx+1)
         # Define grid of parameter values and calculate the criterion function value for this grid.
         x_grid = np.linspace(lbounds[idx], ubounds[idx], detail)
         fvals_grid = ([])
@@ -32,8 +31,9 @@ def plot_criterion_params(params, criterion_args):
         # Plot criterion function for the calculated values. 
         plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
         plt.plot(x_grid, fvals_grid)
+        plt.axvline(true_values[idx], color="#A9A9A9", linestyle="--", label="True Value")
         plt.xlabel(param_names[idx])
-        plt.ylabel('Criterion Function')    
+        
         plt.show()
     
 
@@ -62,11 +62,9 @@ def plot_criterion_detail(params, criterion_args):
     ubounds = [0.97, 0.9501]
     xticks_steps = [0.005, 0.00005]
     detail = 20
-
+    true_value = 0.95
     
     for idx in range(len(lbounds)):
-        # Position of subplot
-        plt.subplot(len(lbounds), 1, idx+1)
         # Define grid of parameter values and calculate the criterion function value for this grid.
         x_grid = np.linspace(lbounds[idx], ubounds[idx], detail)
         fvals_grid = ([])
@@ -80,7 +78,9 @@ def plot_criterion_detail(params, criterion_args):
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_name)
         plt.ylabel('Criterion Function')
-    plt.show()
+        plt.axvline(true_value, color="#A9A9A9", linestyle="--", label="True Value")
+
+        plt.show()
             
     
     
