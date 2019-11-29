@@ -17,7 +17,7 @@ def moments_dict_to_list(moments_dict):
     return moments_list
 
 
-def get_weighing_matrix(df_base, choice_options, num_boots, num_agents_smm):
+def get_weighting_matrix(df_base, choice_options, num_boots, num_agents_smm):
     """This function constructs the weighing matrix."""
     # Ensure reproducibility
     np.random.seed(123)

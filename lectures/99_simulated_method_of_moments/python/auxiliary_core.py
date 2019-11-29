@@ -90,7 +90,7 @@ def evaluate(params_cand, options, weighting_matrix, moments_obs, choice_options
 
     is_valid = len(stats_obs) == len(stats_sim) == num_moments
     
-    # Calculate weigthted dot product of difference between real moments and 
+    # Calculate weigthed dot product of difference between real moments and 
     # simulated moments.
     if is_valid:
         stats_diff = np.array(stats_obs) - np.array(stats_sim)

@@ -34,7 +34,7 @@ def plot_criterion_params(params, criterion_args):
         plt.plot(x_grid, fvals_grid)
         plt.xlabel(param_names[idx])
         plt.ylabel('Criterion Function')    
-    plt.show()
+        plt.show()
     
 
 def plot_criterion_detail(params, criterion_args):
@@ -102,6 +102,7 @@ def plot_moments_choices(moments_obs, moments_sim):
         if idx == 1:
             plt.legend(df.columns, loc="best")
     
+    plt.tight_layout()
     plt.show()
     
     
@@ -122,6 +123,6 @@ def plot_moments_wage(moments_obs, moments_sim):
     plt.plot(df_sim[1], label = "simulated")
     plt.legend(loc="best")
     plt.xlabel('Period')
-
     
+    plt.tight_layout()
     plt.show()
