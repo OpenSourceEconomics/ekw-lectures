@@ -25,7 +25,7 @@ def plot_criterion_params(params, criterion_args):
         fvals_grid = ([])
         for param in x_grid:
             parameters.loc[param_names[idx],'value'] = param
-            fval = evaluate(parameters, *criterion_args)
+            fval = criterion_smm(parameters, *criterion_args)
             fvals_grid.append(fval)
        
         # Plot criterion function for the calculated values. 
@@ -70,7 +70,7 @@ def plot_criterion_detail(params, criterion_args):
         fvals_grid = ([])
         for param in x_grid:
             params.loc[param_name,'value'] = param
-            fval = evaluate(params, *criterion_args)
+            fval = criterion_smm(params, *criterion_args)
             fvals_grid.append(fval)
        
         # Plot criterion function for the calculated values. 
@@ -90,15 +90,15 @@ def plot_moments_choices(moments_obs, moments_sim):
     titles = ["Data Moments", "Simulated Moments"]
     
     for idx in [0,1]:
-        df = pd.DataFrame(moments[idx]['Choice Probabilities']).transpose()
+        df = pd.DataFrame(moments[idx]['Choice Frequencies']).transpose()
         df = df.rename(columns={0: "fishing", 1: "hammock"})
 
         plt.subplot(1, 2, idx+1)
         plt.ylim((0,1))
         plt.title(titles[idx])
-        plt.plot(pd.DataFrame(moments[idx]['Choice Probabilities']).transpose())
+        plt.plot(pd.DataFrame(moments[idx]['Choice Frequencies']).transpose())
         plt.xlabel("Period")
-        plt.ylabel("Choice Proportion")
+        plt.ylabel("Choice Frequencies")
         if idx == 1:
             plt.legend(df.columns, loc="best")
     

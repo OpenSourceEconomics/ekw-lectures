@@ -17,12 +17,12 @@ def get_moments(df, choice_options):
         - 'Wage': Column containing the wage each agent has earned each period (should be np.nan if 
                   agent did not work in a given period)
     choice_options(list): List of possible choices. Needs to be specified manually because we need the full set of choice 
-                          options for the choice probabilities and there can be cases where some choices are not realized 
+                          options for the choice frequencies and there can be cases where some choices are not realized 
                           by any agent and will thus not appear in the data.
     
     Returns:
     moments_dict(dictionary): Dictionary containing subdictionaries with the moments:
-        - 'Choice Probability': Dictionary containing the proportion of agents who have chosen a given 
+        - 'Choice Frequencies': Dictionary containing the proportion of agents who have chosen a given 
                                 option each period for each option.
         - 'Wage Distribution':  Dictionary containing the mean and the standard deviation of wages for each period.
     --------------------------------------------------------------------------------------------------------------------    
@@ -31,11 +31,11 @@ def get_moments(df, choice_options):
 
     moments_dict = {}
     
-    # 1. Choice Probability for each period and each choice option
+    # 1. Choice frequencies for each period and each choice option
     df_indexed = df.set_index(['Identifier', 'Period'], drop=True)
     df_grouped_period = df_indexed.groupby(['Period'])
     info_period = df_grouped_period['Choice'].value_counts(normalize=True).to_dict()
-    # Dictionary will give a period choice probability of 0 if a choice is not observed at all in a period.
+    # Dictionary will give a period choice frequencies of 0 if a choice is not observed at all in a period.
     info_period = defaultdict(lambda: 0.00, info_period)
 
     choices_dict = dict.fromkeys(periods)
@@ -47,7 +47,7 @@ def get_moments(df, choice_options):
     
         choices_dict[key] = choice_proba  
     
-    moments_dict['Choice Probabilities'] = choices_dict
+    moments_dict['Choice Frequencies'] = choices_dict
     
     # 2. Wage Distribution
     periods = sorted(df['Period'].unique())
@@ -71,7 +71,7 @@ def get_moments(df, choice_options):
 
 
 
-def evaluate(params_cand, options, weighting_matrix, moments_obs, choice_options):
+def criterion_smm(params_cand, options, weighting_matrix, moments_obs, choice_options):
     params = params_cand.copy()
     periods = range(options["n_periods"])
     num_moments = len(np.diag(weighting_matrix))

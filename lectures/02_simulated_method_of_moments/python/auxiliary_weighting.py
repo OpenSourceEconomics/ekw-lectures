@@ -39,7 +39,7 @@ def get_weighting_matrix(df_base, choice_options, num_boots, num_agents_smm):
 
             # We want to confirm that we have valid values for all required moments that we were
             # able to calculate on the observed dataset.
-            for group in ['Choice Probabilities', 'Wage Distribution']:
+            for group in ['Choice Frequencies', 'Wage Distribution']:
                 for period in moments_base[group].keys():
                     if period not in moments_boot[group].keys():
                         raise NotImplementedError
