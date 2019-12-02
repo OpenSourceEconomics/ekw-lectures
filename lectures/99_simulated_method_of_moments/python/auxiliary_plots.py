@@ -10,7 +10,7 @@ from python.auxiliary_core import *
 
 def plot_criterion_params(params, criterion_args): 
     
-    param_names = ['delta', 'wage_fishing', 'nonpec_fishing', 'nonpec_hammock', ('shocks_sdcorr, sd_fishing'), ('shocks_sdcorr, sd_hammock'), ('shocks_sdcorr, corr_hammock_fishing')]
+    param_names = ['delta', 'wage_fishing', 'nonpec_fishing', 'nonpec_hammock', ('shocks_sdcorr', 'sd_fishing'), ('shocks_sdcorr', 'sd_hammock'), ('shocks_sdcorr', 'corr_hammock_fishing')]
     lbounds = [0.93, 0.069, -0.11, 1.02, 0.008, 0.008, -0.1] 
     ubounds = [0.97, 0.071, -0.09, 1.054, 0.012, 0.012, 0.1] 
     xticks_steps = [0.005 ,0.0005, 0.005, 0.005, 0.001, 0.001, 0.05] 
