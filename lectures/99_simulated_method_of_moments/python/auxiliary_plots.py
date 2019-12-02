@@ -5,10 +5,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import respy as rp
-from python.auxiliary_core import *
 
 
-def plot_criterion_params(params, criterion_args): 
+def plot_criterion_params(params, criterion_args, criterion_smm): 
     
     param_names = ['delta', 'wage_fishing', 'nonpec_fishing', 'nonpec_hammock', ('shocks_sdcorr', 'sd_fishing'), ('shocks_sdcorr', 'sd_hammock'), ('shocks_sdcorr', 'corr_hammock_fishing')]
     lbounds = [0.93, 0.069, -0.11, 1.02, 0.008, 0.008, -0.1] 
@@ -37,7 +36,7 @@ def plot_criterion_params(params, criterion_args):
         plt.show()
     
 
-def plot_criterion_detail(params, criterion_args):
+def plot_criterion_detail(params, criterion_args, criterion_smm):
     """ Plots criterion function for one or multiple ranges of values for a single parameter in the model.
     Args:
     params(pd.DataFrame): Dataframe containing the parameters in the model.
