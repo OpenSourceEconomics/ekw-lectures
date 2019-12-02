@@ -19,9 +19,3 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle as pkl
 import pandas as pd
-
-from uq_configurations import PROJECT_DIR
-from uq_configurations import RSLT_DIR
-from uq_configurations import FIG_DIR
-
-

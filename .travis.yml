@@ -13,4 +13,4 @@ install:
 
 script:
   - source .envrc
-  - run-notebooks
+  - travis_wait run-notebooks
