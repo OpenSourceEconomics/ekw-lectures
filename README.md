@@ -1,5 +1,6 @@
 # respy - lectures
 
+
 This repository contains several lectures that use the ``respy`` package.
 
 #### [Robinson Crusoe model](https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/00_robinson_economy/notebook.ipynb)
