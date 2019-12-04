@@ -1,6 +1,6 @@
 """ Auxiliary file containing functions for plots for the notebook on simulated method of moments estimation.
 """
-
+import copy
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -125,3 +125,91 @@ def plot_moments_wage(moments_obs, moments_sim):
     
     plt.tight_layout()
     plt.show()
+    
+    
+def plot_chatter(seeds, criterion_smm, kwargs):
+    
+    args = copy.deepcopy(kwargs)
+    criterion_values =[]
+    
+    for seed in seeds:
+        args['options']['simulation_seed'] = seed
+        val = criterion_smm(args['params'], 
+                            args['options'], 
+                            args['weighting_matrix'],
+                            args['moments_obs'],
+                            args['choice_options'])
+
+        criterion_values.append(val)
+
+    plt.plot(seeds, criterion_values, color='C1')
+    plt.title('Criterion function for different simulation seeds')
+    plt.ylabel('Criterion function')
+    plt.xlabel('Seed') 
+    
+
+def plot_chatter_numagents_sim(seeds, num_agents, criterion_smm, kwargs):
+    
+    args = copy.deepcopy(kwargs)
+    results = pd.DataFrame(columns=num_agents)
+
+    for num in num_agents:
+        args['options']['simulation_agents'] = num
+        criterion_values =[]
+        for seed in seeds:
+            args['options']['simulation_seed'] = seed
+
+            val = criterion_smm(args['params'], 
+                                args['options'], 
+                                args['weighting_matrix'],
+                                args['moments_obs'],
+                                args['choice_options'])
+
+            criterion_values.append(val)
+
+        results[num] = criterion_values
+
+        plt.plot(seeds, results[num], label=num)
+        plt.title('Increasing only the number of simulated agents')
+        plt.ylabel('Criterion function')
+        plt.xlabel('Seed')
+        plt.legend(title='Number of agents', loc='best')
+
+        
+def plot_chatter_numagents_both(seeds, num_agents, get_moments, criterion_smm, kwargs):
+    
+    args = copy.deepcopy(kwargs)
+    # Initialize df to hold results.
+    results = pd.DataFrame(columns=num_agents)
+
+    # Increase number of agents in real data.
+    for num in num_agents:
+        options_true = args['options'].copy()
+        options_true["simulation_agents"] = num
+        simulate = rp.get_simulate_func(args['params'], options_true)
+        data_true = simulate(args['params'])
+        moments_true = get_moments(data_true, args['choice_options'])
+
+    # Increase number of agents in simulated model.        
+        options_chatter = args['options'].copy()
+        options_chatter["simulation_agents"] = num 
+        criterion_values =[]
+        for seed in seeds:
+            options_chatter["simulation_seed"] = seed
+            val = criterion_smm(args['params'], 
+                                options_chatter, 
+                                args['weighting_matrix'], 
+                                moments_true, 
+                                args['choice_options'])
+
+            criterion_values.append(val)
+
+        results[num] = criterion_values
+
+    # Plot the results.
+    for num in num_agents:
+        plt.title('Increasing the number of Observed and Simulated agents')
+        plt.ylabel('Criterion function')
+        plt.xlabel('Seed')
+        plt.plot(seeds, results[num], label=num)
+        plt.legend()    
