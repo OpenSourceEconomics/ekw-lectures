@@ -143,6 +143,7 @@ def plot_chatter(seeds, criterion_smm, kwargs):
         criterion_values.append(val)
 
     plt.plot(seeds, criterion_values, color='C1')
+    plt.ylim(-1,40)
     plt.title('Criterion function for different simulation seeds')
     plt.ylabel('Criterion function')
     plt.xlabel('Seed') 
@@ -170,11 +171,12 @@ def plot_chatter_numagents_sim(seeds, num_agents, criterion_smm, kwargs):
         results[num] = criterion_values
 
         plt.plot(seeds, results[num], label=num)
+        plt.ylim(-1,40)
         plt.title('Increasing only the number of simulated agents')
         plt.ylabel('Criterion function')
         plt.xlabel('Seed')
-        plt.legend(title='Number of agents', loc='best')
-
+        plt.legend(loc='best')
+        
         
 def plot_chatter_numagents_both(seeds, num_agents, get_moments, criterion_smm, kwargs):
     
@@ -207,9 +209,9 @@ def plot_chatter_numagents_both(seeds, num_agents, get_moments, criterion_smm, k
         results[num] = criterion_values
 
     # Plot the results.
-    for num in num_agents:
+        plt.plot(seeds, results[num], label=num)
+        plt.ylim(-1,40)
         plt.title('Increasing the number of Observed and Simulated agents')
         plt.ylabel('Criterion function')
         plt.xlabel('Seed')
-        plt.plot(seeds, results[num], label=num)
-        plt.legend()    
+        plt.legend(loc='best')
