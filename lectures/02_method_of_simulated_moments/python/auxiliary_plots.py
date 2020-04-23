@@ -7,15 +7,16 @@ import matplotlib.pyplot as plt
 import respy as rp
 
 
-def plot_criterion_params(params, criterion_args, criterion_smm): 
+def plot_criterion_params(params, param_names, criterion_msm, radius): 
+    """Plot criterion_msm for all values in params given radius (percentage deviation from value in 
+       params dataframe). 
+    """
     
-    param_names = ['delta', 'wage_fishing', 'nonpec_fishing', 'nonpec_hammock', ('shocks_sdcorr', 'sd_fishing'), ('shocks_sdcorr', 'sd_hammock'), ('shocks_sdcorr', 'corr_hammock_fishing')]
-    lbounds = [0.93, 0.069, -0.11, 1.02, 0.008, 0.008, -0.1] 
-    ubounds = [0.97, 0.071, -0.09, 1.054, 0.012, 0.012, 0.1] 
-    xticks_steps = [0.005 ,0.0005, 0.005, 0.005, 0.001, 0.001, 0.05] 
-    detail = 20     
-    true_values = [0.95, 0.07, -0.1, 1.046, 0.01, 0.01, 0]
-    
+    true_values = [params.loc[name, "value"] for name in param_names]
+    deviations = [abs(val)*radius for val in true_values]
+    lbounds = [params.loc[name, "value"] - dev for name, dev in zip(param_names, deviations)]
+    ubounds = [params.loc[name, "value"] + dev for name, dev in zip(param_names, deviations)]
+    detail = 20         
     
     for idx in range(len(param_names)):        
         parameters = params.copy()
@@ -24,63 +25,16 @@ def plot_criterion_params(params, criterion_args, criterion_smm):
         fvals_grid = ([])
         for param in x_grid:
             parameters.loc[param_names[idx],'value'] = param
-            fval = criterion_smm(parameters, *criterion_args)
+            fval = criterion_msm(parameters)
             fvals_grid.append(fval)
        
         # Plot criterion function for the calculated values. 
-        plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
+        plt.xticks(np.linspace(lbounds[idx], ubounds[idx],num=5))
         plt.plot(x_grid, fvals_grid)
         plt.axvline(true_values[idx], color="#A9A9A9", linestyle="--", label="True Value")
         plt.xlabel(param_names[idx])
         
         plt.show()
-    
-
-def plot_criterion_detail(params, criterion_args, criterion_smm):
-    """ Plots criterion function for one or multiple ranges of values for a single parameter in the model.
-    Args:
-    params(pd.DataFrame): Dataframe containing the parameters in the model.
-    param_name(string): Name of the parameter that should be varied to plot the criterion function.
-    lbounds(list): Lower bound of the range of parameter values that should be calculated. Multiple values can be 
-                   specified to plot the criterion function at different ranges of the parameter values.
-    ubounds(list): Upper bound of the range of parameter values that should be calculated. Must be the same length as
-                    lbounds.
-    xticks_steps(list): List that specifies the step size for the ticks of the xaxis.
-    criterion_args(list): List of arguments that need to be specified for the criterion function which is called for 
-                          plotting (Args: options, weighting_matrix, moments_obs, choice_options)
-    detail(int): Number of parameter values that the criterion function should be calculated for. Determines
-                 the accuracy of the plotted function. 
-    Returns:
-    plots 
-    --------------------------------------------------------------------------------------------------------------------
-    """
-    params = params.copy()
-
-    param_name = 'delta' 
-    lbounds = [0.93, 0.9499]
-    ubounds = [0.97, 0.9501]
-    xticks_steps = [0.005, 0.00005]
-    detail = 20
-    true_value = 0.95
-    
-    for idx in range(len(lbounds)):
-        # Define grid of parameter values and calculate the criterion function value for this grid.
-        x_grid = np.linspace(lbounds[idx], ubounds[idx], detail)
-        fvals_grid = ([])
-        for param in x_grid:
-            params.loc[param_name,'value'] = param
-            fval = criterion_smm(params, *criterion_args)
-            fvals_grid.append(fval)
-       
-        # Plot criterion function for the calculated values. 
-        plt.xticks(np.arange(lbounds[idx], ubounds[idx], step=xticks_steps[idx]))
-        plt.plot(x_grid, fvals_grid)
-        plt.xlabel(param_name)
-        plt.ylabel('Criterion Function')
-        plt.axvline(true_value, color="#A9A9A9", linestyle="--", label="True Value")
-
-        plt.show()
-            
     
     
 def plot_moments_choices(moments_obs, moments_sim):
