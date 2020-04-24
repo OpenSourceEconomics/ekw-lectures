@@ -15,10 +15,10 @@ def plot_choice_probabilities(df):
     
 def plot_distibution_wages(df):
     
-    for period in df["Period"].unique():
+    for period in df.index.get_level_values("Period").unique():
 
         fig, ax = plt.subplots()
-        ax.hist(df[df["Period"] == period]["Wage"], density=True)
+        ax.hist(df.xs(period, level='Period')["Wage"], density=True)
         ax.set_title(f"Period {period}")
         ax.set_xlabel("Wage")
         

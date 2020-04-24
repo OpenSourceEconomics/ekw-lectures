@@ -9,13 +9,13 @@ dependencies:
 - python=3.6
 - pip
 - numpy
-- pandas=0.24
+- pandas>=0.24
 - pytest
 - jupyterlab
 - matplotlib
 - seaborn
 - scipy
-- estimagic>=0.0.14
+- estimagic>=0.0.30
 - black
 - flake8
 - doc8
