@@ -2,9 +2,9 @@ from IPython.display import Image
 from IPython import get_ipython
 
 ipython = get_ipython()
-ipython.magic('matplotlib inline')
-ipython.magic('load_ext autoreload')
-ipython.magic('autoreload 2')
+ipython.magic("matplotlib inline")
+ipython.magic("load_ext autoreload")
+ipython.magic("autoreload 2")
 
 from functools import partial
 from pathlib import Path

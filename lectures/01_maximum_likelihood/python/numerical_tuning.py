@@ -45,5 +45,7 @@ for num_agents in GRID_AGENTS:
                 params.loc[("delta", "delta"), "value"] = value
                 fvals.append(crit_func(params))
 
-            rslts.loc[(num_agents, num_draws, tau), "delta"] = grid[fvals.index(max(fvals))]
+            rslts.loc[(num_agents, num_draws, tau), "delta"] = grid[
+                fvals.index(max(fvals))
+            ]
             rslts.to_pickle("tuning.delta.pkl")

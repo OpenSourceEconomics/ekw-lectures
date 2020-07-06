@@ -46,7 +46,9 @@ for index in INDICES:
         boot_df = simulate(params_base)
 
         crit_func = rp.get_crit_func(params_base, options, boot_df)
-        p_wrapper_crit_func = partial(wrapper_crit_func, crit_func, options_base, params_base, index)
+        p_wrapper_crit_func = partial(
+            wrapper_crit_func, crit_func, options_base, params_base, index
+        )
 
         point = params_base.loc[index, "value"]
         fd = approx_fprime([point], p_wrapper_crit_func, EPS)[0]

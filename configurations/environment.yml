@@ -22,3 +22,5 @@ dependencies:
 - restructuredtext_lint
 - tox-conda
 - respy
+- pytest-black
+- pytest-flake8

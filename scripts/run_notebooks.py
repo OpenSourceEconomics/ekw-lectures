@@ -5,17 +5,17 @@ import subprocess as sp
 import glob
 import os
 
-os.chdir(os.environ['PROJECT_ROOT'] + '/lectures')
+os.chdir(os.environ["PROJECT_ROOT"] + "/lectures")
 
 
 for dir_ in glob.glob("*"):
-    
+
     os.chdir(dir_)
-    
-    for notebook in sorted(glob.glob('*.ipynb')):
-        cmd = ' jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1'.format(notebook)
+
+    for notebook in sorted(glob.glob("*.ipynb")):
+        cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(
+            notebook
+        )
         sp.check_call(cmd, shell=True)
 
     os.chdir("../")
-                      
-    
