@@ -13,7 +13,9 @@ respy - lectures
 
 This repository contains several lectures that use the ``respy`` package.
 
-`Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
+.. class:: bold
+
+  `Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
 
 We do the following ...
 
