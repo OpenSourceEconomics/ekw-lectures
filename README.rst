@@ -43,3 +43,10 @@ We outline the model that serves as the running example throughout the lectures.
 
 
 [![Build Status](https://travis-ci.org/OpenSourceEconomics/respy-lectures.svg?branch=master)](https://travis-ci.org/OpenSourceEconomics/respy-lectures)
+
+
+Powered by
+------------
+
+.. image:: docs/_static/images/ose-logo.jpg
+    :target: https://open-econ.org
