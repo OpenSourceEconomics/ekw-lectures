@@ -24,3 +24,6 @@ dependencies:
 - respy
 - pytest-black
 - pytest-flake8
+- pip:
+  - black-nb
+  - flake8-nb
