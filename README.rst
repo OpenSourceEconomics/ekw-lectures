@@ -1,14 +1,22 @@
-# respy - lectures
+respy - lectures
+================
 
 This repository contains several lectures that use the ``respy`` package.
 
-#### [Introduction to structural econometrics](https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb)
+
+Introduction to structural econometrics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We estimate the Robinson Crusoe model using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters
 
-## Calibration
+* [Notebook](https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb)
+
+
+Calibration
+-----------
 
 #### [Maximum likelihood estimation](https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/maximum-likelihood/notebook.ipynb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We estimate the Robinson Crusoe model using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters.
 
@@ -46,7 +54,12 @@ We outline the model that serves as the running example throughout the lectures.
 
 
 Powered by
-------------
+----------
 
-.. image:: docs/_static/images/ose-logo.jpg
-    :target: https://open-econ.org
+.. image:: docs/_static/images/OSE_sb_web.svg
+  :width: 22 %
+  :target: https://open-econ.org
+
+.. image:: docs/_static/images/nuvolos_sidebar_logo_acblue.svg
+  :width: 22 %
+  :target: https://open-econ.org
