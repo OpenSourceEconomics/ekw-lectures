@@ -1,3 +1,9 @@
+
+respy - lectures
+================
+
+This repository contains several lectures that use the ``respy`` package.
+
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
   :target: https://github.com/psf/black
 
@@ -7,11 +13,7 @@
 .. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
   :target: https://ose.zulipchat.com
 
-
-respy - lectures
-================
-
-This repository contains several lectures that use the ``respy`` package.
+---
 
 `Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
 
