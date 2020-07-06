@@ -49,7 +49,7 @@ def run_bootstrap(df, params, options, constr, num_boots, is_perturb=False):
             for dict_ in constr:
                 try:
                     stat = params.loc[(dict_["loc"]), "value"].values
-                except:
+                except:  # noqa: E722
                     stat = params.loc[(dict_["loc"]), "value"]
                 params_start.loc[(dict_["loc"]), "value"] = stat
 

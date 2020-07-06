@@ -13,4 +13,5 @@ install:
 
 script:
   - source .envrc
+  - pytest
   - travis_wait run-notebooks

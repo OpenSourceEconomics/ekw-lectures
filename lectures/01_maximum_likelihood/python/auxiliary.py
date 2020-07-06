@@ -2,7 +2,6 @@ import pickle as pkl
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import respy as rp
 import numpy as np
 
 
@@ -29,7 +28,7 @@ def plot_score_function(norm_grid, norm_fds):
 
     fig, ax = plt.subplots()
 
-    ax.set_title("$\delta$")
+    ax.set_title(r"$\delta$")
 
     ax.plot(norm_grid, norm_fds, label="gradient")
     ax.plot(norm_grid, norm_grid, label="benchmark")
@@ -69,12 +68,12 @@ def plot_bootstrap_distribution():
 
 def plot_score_distribution():
 
-    rslts = pkl.load(open(f"material/score.delta.pkl", "rb"))
+    rslts = pkl.load(open("material/score.delta.pkl", "rb"))
 
     fig, ax = plt.subplots()
 
     ax.hist(rslts, density=True)
-    ax.set_title("$\delta$")
+    ax.set_title(r"$\delta$")
 
 
 def plot_smoothing_parameter(rslts, params_base, grid):
@@ -88,5 +87,5 @@ def plot_smoothing_parameter(rslts, params_base, grid):
     for tau, fvals in rslts.items():
         ax.plot(grid, fvals, label=f"{tau}")
 
-    ax.set_title("$\delta$")
+    ax.set_title(r"$\delta$")
     ax.legend()

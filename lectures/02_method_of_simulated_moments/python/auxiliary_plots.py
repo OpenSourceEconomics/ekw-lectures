@@ -1,5 +1,5 @@
-""" 
-Auxiliary file containing functions for plots for the notebook on simulated 
+"""
+Auxiliary file containing functions for plots for the notebook on simulated
 method of moments estimation.
 """
 import copy
@@ -11,8 +11,8 @@ import respy as rp
 
 def plot_criterion_params(params, param_names, criterion_msm, radius):
     """
-    Plot criterion_msm for all values in params given radius (percentage 
-    deviation from value in params dataframe). 
+    Plot criterion_msm for all values in params given radius (percentage deviation from value in
+    params dataframe).
     """
 
     true_values = [params.loc[name, "value"] for name in param_names]
@@ -155,8 +155,8 @@ def plot_chatter_numagents_sim(seeds, num_agents, kwargs):
 
 
 def plot_chatter_numagents_both(seeds, num_agents, calc_moments, replace_nans, kwargs):
-    """Plot criterion function for different seeds and numbers of agents in 
-    simulated and observed sample.
+    """Plot criterion function for different seeds and numbers of agents in simulated and
+    observed sample.
     """
     args = copy.deepcopy(kwargs)
     # Initialize df to hold results.
