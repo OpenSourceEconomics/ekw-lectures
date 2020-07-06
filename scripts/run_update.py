@@ -5,6 +5,6 @@
 # standard library
 import subprocess
 
-subprocess.check_call(['git', 'pull'])
+subprocess.check_call(["git", "pull"])
 
-subprocess.check_call(['git', 'submodule', 'update', '--recursive', '--remote'])
+subprocess.check_call(["git", "submodule", "update", "--recursive", "--remote"])
