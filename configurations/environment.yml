@@ -17,7 +17,7 @@ dependencies:
 - scipy
 - estimagic>=0.0.30
 - black
-- numba>=0.48
+- numba==0.48
 - flake8
 - doc8
 - restructuredtext_lint
