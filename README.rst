@@ -2,7 +2,7 @@
 respy - lectures
 ================
 
-This repository contains several lectures that use the ``respy`` package.
+This repository contains several lectures that use the ``respy`` package. These support our educational activities around our group's research code.
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
   :target: https://github.com/psf/black
@@ -13,7 +13,8 @@ This repository contains several lectures that use the ``respy`` package.
 .. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
   :target: https://ose.zulipchat.com
 
----
+Overview
+--------
 
 `Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
 
@@ -30,18 +31,14 @@ We estimate the Robinson Crusoe model using the method of maximum likelihood. We
 
 We estimate the Robinson Crusoe model using the method of simulated moments. We revisit the basic ideas behind this approach and then prototype a criterion function and a weighting matrix. We conclude with  a Monte Carlo exploration of selected challenges in the estimation procedure.
 
-Replications
-------------
-
-Please see ``respy``'s `online documentation <https://respy.readthedocs.io>`_ for several replications of seminal papers in the literature.
-
 Extensions
 ----------
+
+We showcase several extensions to the baseline model and its standard analysis.
 
 `Hyperbolic discounting <https://media.giphy.com/media/kHfUyPaDUDBY11l4DZ/giphy.gif>`_
 
 ... work in progress
-
 
 `Robust decision-making <https://media.giphy.com/media/kHfUyPaDUDBY11l4DZ/giphy.gif>`_
 
@@ -57,6 +54,11 @@ Miscellaneous
 `Robinson Crusoe model <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/robinson-economy/notebook.ipynb>`_
 
 We outline the model that serves as the running example throughout the lectures.
+
+Replications
+------------
+
+Please see ``respy``'s `online documentation <https://respy.readthedocs.io>`_ for several replications of seminal papers in the literature.
 
 Powered by
 ----------
