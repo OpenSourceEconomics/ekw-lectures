@@ -1,3 +1,13 @@
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+  :target: https://github.com/psf/black
+
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+  :target: https://opensource.org/licenses/MIT
+
+.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+  :target: https://ose.zulipchat.com
+
+
 respy - lectures
 ================
 
@@ -45,16 +55,6 @@ Miscellaneous
 `Robinson Crusoe model <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/robinson-economy/notebook.ipynb>`_
 
 We outline the model that serves as the running example throughout the lectures.
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-  :target: https://github.com/psf/black
-
-.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
-  :target: https://opensource.org/licenses/MIT
-
-.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
-  :target: https://ose.zulipchat.com
-
 
 Powered by
 ----------
