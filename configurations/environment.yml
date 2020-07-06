@@ -6,7 +6,6 @@ channels:
   - conda-forge
 
 dependencies:
-- python=3.6
 - pip
 - numpy
 - pandas>=0.24
@@ -17,7 +16,7 @@ dependencies:
 - scipy
 - estimagic>=0.0.30
 - black
-- numba==0.48
+- numba
 - flake8
 - doc8
 - restructuredtext_lint
