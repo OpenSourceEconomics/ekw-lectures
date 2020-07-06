@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 def plot_choice_probabilities(df):
     fig, ax = plt.subplots()
 
-    df.groupby("Period").Choice.value_counts(normalize=True).unstack().plot.bar(
-        stacked=True, ax=ax
-    )
+    df.groupby("Period").Choice.value_counts(normalize=True).unstack().plot.bar(stacked=True, ax=ax)
 
     plt.xticks(rotation="horizontal")
 

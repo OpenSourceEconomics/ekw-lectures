@@ -18,12 +18,8 @@ def plot_criterion_params(params, param_names, criterion_msm, radius):
     true_values = [params.loc[name, "value"] for name in param_names]
     deviations = [abs(val) * radius if abs(val) != 0 else radius for val in true_values]
 
-    lbounds = [
-        params.loc[name, "value"] - dev for name, dev in zip(param_names, deviations)
-    ]
-    ubounds = [
-        params.loc[name, "value"] + dev for name, dev in zip(param_names, deviations)
-    ]
+    lbounds = [params.loc[name, "value"] - dev for name, dev in zip(param_names, deviations)]
+    ubounds = [params.loc[name, "value"] + dev for name, dev in zip(param_names, deviations)]
     detail = 20
 
     for idx in range(len(param_names)):
@@ -40,9 +36,7 @@ def plot_criterion_params(params, param_names, criterion_msm, radius):
         # Plot criterion function for the calculated values.
         plt.xticks(np.linspace(lbounds[idx], ubounds[idx], num=5))
         plt.plot(x_grid, fvals_grid)
-        plt.axvline(
-            true_values[idx], color="#A9A9A9", linestyle="--", label="True Value"
-        )
+        plt.axvline(true_values[idx], color="#A9A9A9", linestyle="--", label="True Value")
         plt.xlabel(param_names[idx])
 
         plt.show()
@@ -169,12 +163,8 @@ def plot_chatter_numagents_both(seeds, num_agents, calc_moments, replace_nans, k
         simulate = rp.get_simulate_func(args["params"], options_true)
         data_true = simulate(args["params"])
         moments_true = {
-            "Choice Frequencies": replace_nans(
-                calc_moments["Choice Frequencies"](data_true)
-            ),
-            "Wage Distribution": replace_nans(
-                calc_moments["Wage Distribution"](data_true)
-            ),
+            "Choice Frequencies": replace_nans(calc_moments["Choice Frequencies"](data_true)),
+            "Wage Distribution": replace_nans(calc_moments["Wage Distribution"](data_true)),
         }
         # Increase number of agents in simulated model.
         options_chatter = args["options"].copy()
