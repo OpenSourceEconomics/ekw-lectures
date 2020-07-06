@@ -13,9 +13,7 @@ respy - lectures
 
 This repository contains several lectures that use the ``respy`` package.
 
-.. class:: bold
-
-  `Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
+`Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
 
 We do the following ...
 
@@ -33,7 +31,7 @@ We estimate the Robinson Crusoe model using the method of simulated moments. We 
 Replications
 ------------
 
-Please see `respy`'s [online documentation](https://respy.readthedocs.io) for several replications of seminal papers in the literature.
+Please see ``respy``'s `online documentation <https://respy.readthedocs.io>`_ for several replications of seminal papers in the literature.
 
 Extensions
 ----------
