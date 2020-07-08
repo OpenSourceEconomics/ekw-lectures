@@ -25,11 +25,11 @@ Calibration
 
 `Maximum likelihood estimation <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/maximum-likelihood/notebook.ipynb>`_
 
-We estimate the Robinson Crusoe model using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters.
+We estimate the `Robinson Crusoe model https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/robinson-economy/notebook.ipynb>`_ using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters.
 
 `Method of simulated moments <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/method-of-simulated-moments/notebook.ipynb>`_
 
-We estimate the Robinson Crusoe model using the method of simulated moments. We revisit the basic ideas behind this approach and then prototype a criterion function and a weighting matrix. We conclude with  a Monte Carlo exploration of selected challenges in the estimation procedure.
+We estimate the `Robinson Crusoe model https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/robinson-economy/notebook.ipynb>`_ using the method of simulated moments. We revisit the basic ideas behind this approach and then prototype a criterion function and a weighting matrix. We conclude with  a Monte Carlo exploration of selected challenges in the estimation procedure.
 
 Extensions
 ----------
