@@ -10,7 +10,7 @@ This repository contains several lectures that use the ``respy`` package. These 
 .. image:: _static/images/code-style-black.svg
   :target: https://github.com/psf/black
 
-.. image:: _static/images/License-MIT-yellow.svg
+.. image:: _static/images/License-MIT.svg
   :target: https://opensource.org/licenses/MIT
 
 .. image:: _static/images/zulip.svg
