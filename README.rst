@@ -1,9 +1,3 @@
-
-respy - lectures
-================
-
-This repository contains several lectures that use the ``respy`` package. These support our educational activities around our group's research code.
-
 .. image:: https://readthedocs.org/projects/respy-lectures/badge/?version=latest
   :target: https://respy-lectures.readthedocs.io/en/latest/?badge=latest
 
@@ -18,6 +12,12 @@ This repository contains several lectures that use the ``respy`` package. These 
 
 .. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
   :target: https://ose.zulipchat.com
+
+respy - lectures
+================
+
+This repository contains several lectures that use the ``respy`` package. These support our educational activities around our group's research code.
+
 
 Powered by
 ----------
