@@ -46,7 +46,20 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+# -- Options for nbsphinx  ----------------------------------------
+nbsphinx_execute = "auto"
 
+nbsphinx_prolog = r"""
+{% set docname = env.doc2path(env.docname, base=None) %}
+.. |binder| image:: https://mybinder.org/badge_logo.svg
+    :target: https://mybinder.org/v2/gh/luward/respy-lectures/master?filepath=lectures/{{ docname|e }}
+
+.. only:: html
+
+    .. nbinfo::
+        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/luward/respy-lectures/blob/master/lectures/{{ docname }}>`!
+        Interactive online version: |binder|
+"""
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
