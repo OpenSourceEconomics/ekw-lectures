@@ -37,7 +37,6 @@ Calibration
 .. toctree::
    :maxdepth: 1
 
-   introduction/notebook.ipynb
    maximum-likelihood/notebook.ipynb
 
 We estimate the Robinson Crusoe model using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters.
