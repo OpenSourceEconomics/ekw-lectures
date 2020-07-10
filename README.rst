@@ -16,14 +16,14 @@ This repository contains several lectures that use the ``respy`` package. These 
 Overview
 --------
 
-` **Introduction to structural econometrics** <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
+`Introduction to structural econometrics <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/introduction/notebook.ipynb>`_
 
 We discuss the basic motivation behind structural econometric modeling. We quickly focus on the class of Eckstein-Keane-Wolpin models that are often used in labor economics to study human capital accumulation and discuss their economic model, mathematical formulation, and alternative calibration procedures. We explore the seminal work outlined in Keane & Wolpin (1994) as an example.
 
 Calibration
 -----------
 
-`Maximum likelihood estimation <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/maximum-likelihood/notebook.ipynb>`_
+**`Maximum likelihood estimation <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/maximum-likelihood/notebook.ipynb>`_**
 
 We estimate the `Robinson Crusoe <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/robinson-economy/notebook.ipynb>`_ model using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters.
 
