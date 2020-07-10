@@ -8,7 +8,7 @@ import os
 os.chdir(os.environ["PROJECT_ROOT"] + "/lectures")
 
 
-for dir_ in glob.glob("*"):
+for dir_ in glob.glob("*-*"):
 
     os.chdir(dir_)
 
