@@ -7,13 +7,13 @@ This repository contains several lectures that use the ``respy`` package. These 
 .. image:: https://github.com/luward/respy-lectures/workflows/Continuous%20Integration/badge.svg
   :target: https://github.com/luward/respy-lectures/actions
 
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+.. image:: _static/images/code-style-black.svg
   :target: https://github.com/psf/black
 
-.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+.. image:: _static/images/License-MIT-yellow.svg
   :target: https://opensource.org/licenses/MIT
 
-.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+.. image:: _static/images/zulip.svg
   :target: https://ose.zulipchat.com
 
 =========
