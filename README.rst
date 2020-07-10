@@ -68,5 +68,5 @@ Powered by
   :target: https://open-econ.org
 
 .. image:: docs/_static/images/nuvolos_sidebar_logo_acblue.svg
-  :width: 10 %
+  :width: 8 %
   :target: https://nuvolos.cloud
