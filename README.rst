@@ -4,6 +4,9 @@ respy - lectures
 
 This repository contains several lectures that use the ``respy`` package. These support our educational activities around our group's research code.
 
+.. image:: https://readthedocs.org/projects/respy-lectures/badge/?version=latest
+  :target: https://respy-lectures.readthedocs.io/en/latest/?badge=latest
+
 .. image:: https://github.com/luward/respy-lectures/workflows/Continuous%20Integration/badge.svg
   :target: https://github.com/luward/respy-lectures/actions
 
