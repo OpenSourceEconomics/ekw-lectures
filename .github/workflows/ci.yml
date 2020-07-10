@@ -21,7 +21,7 @@ jobs:
         export PATH="$PATH:/usr/share/miniconda/bin"
         source .envrc
         py.test
-        flake8-nb --ignore=E501 lectures/conf.py ; [ $? -eq 0 ] || exit 1
+        flake8-nb; [ $? -eq 0 ] || exit 1
         black-nb --check .; [ $? -eq 0 ] || exit 1
     - name: run notebooks
       shell: bash -l {0}
