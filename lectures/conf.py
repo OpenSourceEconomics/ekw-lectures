@@ -52,12 +52,12 @@ nbsphinx_execute = "auto"
 nbsphinx_prolog = r"""
 {% set docname = env.doc2path(env.docname, base=None) %}
 .. |binder| image:: https://mybinder.org/badge_logo.svg
-    :target: https://mybinder.org/v2/gh/luward/respy-lectures/master?filepath=lectures/{{ docname|e }}
+    :target: https://mybinder.org/v2/gh/OpenSourceEconomics/respy-lectures/master?filepath=lectures/{{ docname|e }}
 
 .. only:: html
 
     .. nbinfo::
-        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/luward/respy-lectures/blob/master/lectures/{{ docname }}>`!
+        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/OpenSourceEconomics/respy-lectures/blob/master/lectures/{{ docname }}>`!
         Interactive online version: |binder|
 """
 # -- Options for HTML output -------------------------------------------------

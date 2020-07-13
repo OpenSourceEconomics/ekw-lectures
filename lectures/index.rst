@@ -7,8 +7,8 @@ This repository contains several lectures that use the ``respy`` package. These 
 .. image:: https://readthedocs.org/projects/respy-lectures/badge/?version=latest
   :target: https://respy-lectures.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://github.com/luward/respy-lectures/workflows/Continuous%20Integration/badge.svg
-  :target: https://github.com/luward/respy-lectures/actions
+.. image:: https://github.com/OpenSourceEconomics/respy-lectures/workflows/Continuous%20Integration/badge.svg
+  :target: https://github.com/OpenSourceEconomics/respy-lectures/actions
 
 .. image:: _static/images/code-style-black.svg
   :target: https://github.com/psf/black
