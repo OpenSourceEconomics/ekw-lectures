@@ -6,9 +6,10 @@ import glob
 import os
 
 os.chdir(os.environ["PROJECT_ROOT"] + "/lectures")
+dir_list = glob.glob("*-*")
+dir_list.append("introduction")
 
-
-for dir_ in glob.glob("*"):
+for dir_ in dir_list:
 
     os.chdir(dir_)
 
