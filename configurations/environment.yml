@@ -16,14 +16,21 @@ dependencies:
 - scipy
 - estimagic>=0.0.30
 - black
-- numba
+- numba==0.48.0
 - flake8
 - doc8
 - restructuredtext_lint
 - tox-conda
 - respy
+- sphinx>=1.4
+- nbsphinx
 - pytest-black
 - pytest-flake8
 - pip:
-  - black-nb
-  - flake8-nb
+    - black-nb
+    - flake8-nb
+    - sphinx_rtd_theme
+    - nbsphinx
+    - cairosvg
+    - sphinxcontrib-bibtex
+    - sphinxcontrib-svg2pdfconverter[CairoSVG]

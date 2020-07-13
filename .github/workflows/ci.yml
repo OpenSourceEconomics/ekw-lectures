@@ -1,0 +1,32 @@
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: goanpeca/setup-miniconda@v1.0.2
+      with:
+           activate-environment: respy-lectures
+           environment-file: configurations/environment.yml
+           python-version: 3.6
+           auto-activate-base: false
+    - name: check notebook formatting
+      shell: bash -l {0}
+      run: |
+        export PATH="$PATH:/usr/share/miniconda/bin"
+        source .envrc
+        py.test
+        flake8-nb; [ $? -eq 0 ] || exit 1
+        black-nb --check .; [ $? -eq 0 ] || exit 1
+    - name: run notebooks
+      shell: bash -l {0}
+      run: |
+        export PATH="$PATH:/usr/share/miniconda/bin"
+        source .envrc
+        git submodule update --init --recursive
+        run-notebooks
