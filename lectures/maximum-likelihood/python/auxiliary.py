@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 
-def plot_profile_likelihood(rslts, params_base):
+def plot_likelihood(rslts, params_base):
 
     for index, fvals in rslts.items():
         fig, ax = plt.subplots()
@@ -16,7 +16,7 @@ def plot_profile_likelihood(rslts, params_base):
         ax.axvline(
             params_base.loc[index, "value"], color="#A9A9A9", linestyle="--", label="Baseline",
         )
-        ax.plot(grid, np.array(fvals) - np.max(fvals))
+        ax.plot(grid, np.array(fvals) / np.max(fvals))
         ax.set_title(index)
         plt.show()
 
