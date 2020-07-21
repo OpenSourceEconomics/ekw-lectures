@@ -1,14 +1,14 @@
 ################
-EKW - lectures
+ekw - lectures
 ################
 
-This repository contains several lectures that use the ``respy`` package to solve, simulate, and estimate Eckstein-Keane-Wolpin models. These support our educational activities around our group's research code. We provide an accompanying handout and presentation for this class of models `here <https://github.com/OpenSourceEconomics/handout-eckstein-keane-wolpin-models/tree/master/promotion>`_.
+This repository contains several lectures that use the ``respy`` package to solve, simulate, and estimate Eckstein-Keane-Wolpin models. These support our educational activities around our group's research code. We provide an accompanying handout and presentation for this class of models `here <https://github.com/OpenSourceEconomics/ekw-promotion/tree/master/promotion>`_.
 
-.. image:: https://readthedocs.org/projects/respy-lectures/badge/?version=latest
-  :target: https://respy-lectures.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/ekw-lectures/badge/?version=latest
+  :target: https://ekw-lectures.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://github.com/OpenSourceEconomics/respy-lectures/workflows/Continuous%20Integration/badge.svg
-  :target: https://github.com/OpenSourceEconomics/respy-lectures/actions
+.. image:: https://github.com/OpenSourceEconomics/ekw-lectures/workflows/Continuous%20Integration/badge.svg
+  :target: https://github.com/OpenSourceEconomics/ekw-lectures/actions
 
 .. image:: _static/images/code-style-black.svg
   :target: https://github.com/psf/black
