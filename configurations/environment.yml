@@ -1,4 +1,4 @@
-name: respy-lectures
+name: ekw-lectures
 
 channels:
   - defaults
@@ -11,7 +11,7 @@ dependencies:
 - pandas>=0.24
 - pytest
 - jupyterlab
-- matplotlib
+- matplotlib=3.2.
 - seaborn
 - scipy
 - estimagic>=0.0.30
