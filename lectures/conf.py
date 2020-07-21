@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "respy - lectures"
+project = "ekw - lectures"
 copyright = "2020, Prof. Dr. Philipp Eisenhauer"
 author = "Prof. Dr. Philipp Eisenhauer"
 
