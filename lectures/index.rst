@@ -1,5 +1,5 @@
 ################
-respy - lectures
+EKW - lectures
 ################
 
 This repository contains several lectures that use the ``respy`` package to solve, simulate, and estimate Eckstein-Keane-Wolpin models. These support our educational activities around our group's research code. We provide an accompanying handout and presentation for this class of models `here <https://github.com/OpenSourceEconomics/handout-eckstein-keane-wolpin-models/tree/master/promotion>`_.
