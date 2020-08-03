@@ -24,9 +24,9 @@ Overview
 =========
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   introduction/notebook.ipynb
+   overview
 
 We discuss the basic motivation behind structural econometric modeling. We quickly focus on the class of Eckstein-Keane-Wolpin models that are often used in labor economics to study human capital accumulation and discuss their economic model, mathematical formulation, and alternative calibration procedures. We explore the seminal work outlined in Keane & Wolpin (1994) as an example.
 
@@ -35,16 +35,18 @@ Calibration
 ============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   maximum-likelihood/notebook.ipynb
+   calibration
+
+
+Maximum likelihood
+------------------
 
 We estimate the Robinson Crusoe model using the method of maximum likelihood. We study the likelihood function, the distribution of the score statistic, linearity of the score function, and compare alternative methods to compute confidence intervals. Finally, we study the sensitivity of the likelihood function to numerical parameters.
 
-.. toctree::
-   :maxdepth: 1
-
-   method-of-simulated-moments/notebook.ipynb
+Method of simulated moments
+---------------------------
 
 We estimate the Robinson Crusoe model using the method of simulated moments. We revisit the basic ideas behind this approach and then prototype a criterion function and a weighting matrix. We conclude with  a Monte Carlo exploration of selected challenges in the estimation procedure.
 
@@ -72,9 +74,9 @@ Miscellaneous
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   robinson-economy/notebook.ipynb
+   miscellaneous
 
 We outline the model that serves as the running example throughout the lectures.
 
