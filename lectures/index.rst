@@ -22,7 +22,7 @@ This repository contains several lectures that use the ``respy`` package to solv
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    overview
    calibration
