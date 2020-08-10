@@ -9,7 +9,7 @@ dependencies:
 - pip
 - numpy
 - pandas>=0.24
-- pytest
+- pytest=5.4.3
 - jupyterlab
 - matplotlib=3.2.
 - seaborn

@@ -10,13 +10,13 @@ This repository contains several lectures that use the ``respy`` package to solv
 .. image:: https://github.com/OpenSourceEconomics/ekw-lectures/workflows/Continuous%20Integration/badge.svg
   :target: https://github.com/OpenSourceEconomics/ekw-lectures/actions
 
-.. image:: _static/images/code-style-black.svg
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
   :target: https://github.com/psf/black
 
-.. image:: _static/images/License-MIT.svg
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
   :target: https://opensource.org/licenses/MIT
 
-.. image:: _static/images/zulip.svg
+.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
   :target: https://ose.zulipchat.com
 
 
@@ -34,7 +34,7 @@ This repository contains several lectures that use the ``respy`` package to solv
 Powered by
 ==========
 
-.. image:: _static/images/OSE_sb_web.svg
+.. image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_RGB.svg
   :width: 22 %
   :target: https://open-econ.org
 
