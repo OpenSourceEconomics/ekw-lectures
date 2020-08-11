@@ -1,6 +1,8 @@
-################
-ekw - lectures
-################
+.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_no_type_RGB.svg
+  :width: 4 %
+
+|logo| EKW lectures
+===================
 
 This repository contains several lectures that use the ``respy`` package to solve, simulate, and estimate Eckstein-Keane-Wolpin models. These support our educational activities around our group's research code. We provide an accompanying handout and presentation for this class of models `here <https://github.com/OpenSourceEconomics/ekw-promotion/tree/master/promotion>`_.
 
