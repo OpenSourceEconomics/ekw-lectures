@@ -14,7 +14,7 @@ dependencies:
 - matplotlib=3.2.
 - seaborn
 - scipy
-- estimagic>=0.0.30
+- estimagic==0.0.31
 - black
 - numba==0.48.0
 - flake8
