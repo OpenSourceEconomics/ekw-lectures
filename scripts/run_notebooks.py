@@ -14,7 +14,7 @@ for dir_ in dir_list:
     os.chdir(dir_)
 
     for notebook in sorted(glob.glob("*.ipynb")):
-        cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(notebook)
+        cmd = " jupyter nbconvert --to html --execute {}  --ExecutePreprocessor.timeout=-1".format(notebook)
         sp.check_call(cmd, shell=True)
 
     os.chdir("../")
