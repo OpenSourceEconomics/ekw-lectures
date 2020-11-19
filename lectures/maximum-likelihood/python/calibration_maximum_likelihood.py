@@ -53,7 +53,7 @@ def run_bootstrap(df, params, options, constr, num_boots, is_perturb=False):
                     stat = params.loc[(dict_["loc"]), "value"]
                 params_start.loc[(dict_["loc"]), "value"] = stat
 
-        crit_func = rp.get_crit_func(params, options, boot_df)
+        crit_func = rp.get_log_like_func(params, options, boot_df)
 
         results, params_rslt = maximize(
             crit_func,

@@ -45,7 +45,7 @@ for index in INDICES:
         simulate = rp.get_simulate_func(params_base, options)
         boot_df = simulate(params_base)
 
-        crit_func = rp.get_crit_func(params_base, options, boot_df)
+        crit_func = rp.get_log_like_func(params_base, options, boot_df)
         p_wrapper_crit_func = partial(
             wrapper_crit_func, crit_func, options_base, params_base, index
         )

@@ -94,7 +94,7 @@ def plot_chatter(seeds, kwargs):
 
     for seed in seeds:
         args["options"]["simulation_seed"] = seed
-        criterion_msm = rp.get_msm_func(
+        criterion_msm = rp.get_moment_errors_func(
             params=args["params"],
             options=args["options"],
             calc_moments=args["calc_moments"],
@@ -125,7 +125,7 @@ def plot_chatter_numagents_sim(seeds, num_agents, kwargs):
         criterion_values = []
         for seed in seeds:
             args["options"]["simulation_seed"] = seed
-            criterion_msm = rp.get_msm_func(
+            criterion_msm = rp.get_moment_errors_func(
                 params=args["params"],
                 options=args["options"],
                 calc_moments=args["calc_moments"],
@@ -172,7 +172,7 @@ def plot_chatter_numagents_both(seeds, num_agents, calc_moments, replace_nans, k
         criterion_values = []
         for seed in seeds:
             options_chatter["simulation_seed"] = seed
-            criterion_msm = rp.get_msm_func(
+            criterion_msm = rp.get_moment_errors_func(
                 params=args["params"],
                 options=options_chatter,
                 calc_moments=args["calc_moments"],
