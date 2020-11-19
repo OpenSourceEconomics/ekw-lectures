@@ -36,7 +36,7 @@ for num_agents in GRID_AGENTS:
             options["estimation_tau"] = tau
             options["simulation_agents"] = num_agents
 
-            crit_func = rp.get_crit_func(params_base, options, df)
+            crit_func = rp.get_log_like_func(params_base, options, df)
             grid = np.concatenate((np.linspace(0.948, 0.952, 40), [delta_true]))
 
             fvals = list()
