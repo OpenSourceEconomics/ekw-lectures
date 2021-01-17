@@ -1,9 +1,0 @@
-- pip
-- jupyterlab
-- sphinx>=1.4
-- nbsphinx
-- sphinx_rtd_theme
-- nbsphinx
-- cairosvg
-- sphinxcontrib-bibtex
-- sphinxcontrib-svg2pdfconverter[CairoSVG]

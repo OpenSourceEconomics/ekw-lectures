@@ -9,10 +9,10 @@ sphinx:
 
 python:
   version: 3.7
-  install:
-     - requirements: configurations/requirements.txt
-     - method: pip
-       path: .
 
+
+conda:
+  environment: configurations/rtd.yml
+  
 formats:
   - pdf
