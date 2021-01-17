@@ -33,7 +33,6 @@ extensions = [
     "sphinx.ext.extlinks",
     "sphinx_rtd_theme",
     "sphinx.ext.doctest",
-    "sphinxcontrib.bibtex",
 ]
 
 
