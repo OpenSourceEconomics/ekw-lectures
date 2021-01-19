@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """This module executes all notebooks. It serves the main purpose to ensure that all can be
 executed and work proper independently."""
-import subprocess as sp
 import glob
 import os
+import subprocess as sp
 
 os.chdir(os.environ["PROJECT_ROOT"] + "/lectures")
 dir_list = glob.glob("*-*")

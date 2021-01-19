@@ -3,9 +3,10 @@ Auxiliary file containing functions for plots for the notebook on simulated
 method of moments estimation.
 """
 import copy
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import respy as rp
 
 

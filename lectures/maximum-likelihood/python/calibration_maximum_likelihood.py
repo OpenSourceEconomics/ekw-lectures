@@ -1,9 +1,8 @@
 import warnings
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 import respy as rp
-
 from estimagic.optimization.optimize import maximize
 from pandas.core.common import SettingWithCopyWarning
 

@@ -15,4 +15,3 @@ dependencies:
     - cairosvg
     - sphinxcontrib-svg2pdfconverter[CairoSVG]
     - parso
-

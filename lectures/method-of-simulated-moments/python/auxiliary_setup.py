@@ -1,15 +1,16 @@
 import os
-import yaml
-import pandas as pd
+
 import matplotlib.pyplot as plt
+import pandas as pd
+import yaml
 
 
 def load_model_specs():
     ROOT = os.getcwd()
     os.chdir("../../configurations/robinson")
 
-    options = yaml.safe_load(open("robinson.yaml", "r"))
-    params_true = pd.read_csv(open("robinson.csv", "r"))
+    options = yaml.safe_load(open("robinson.yaml"))
+    params_true = pd.read_csv(open("robinson.csv"))
     params_true.set_index(["category", "name"], inplace=True)
 
     os.chdir(ROOT)

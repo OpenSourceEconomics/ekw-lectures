@@ -1,9 +1,9 @@
+import pickle as pkl
 from functools import partial
 
-from scipy.optimize import approx_fprime
-import pickle as pkl
-import respy as rp
 import numpy as np
+import respy as rp
+from scipy.optimize import approx_fprime
 
 
 INDICES = [("delta", "delta")]
