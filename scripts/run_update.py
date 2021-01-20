@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """ This script updates all files, including the submodules.
 """
-
 # standard library
 import subprocess
 

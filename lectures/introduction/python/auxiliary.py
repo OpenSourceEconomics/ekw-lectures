@@ -1,10 +1,11 @@
-import matplotlib.pyplot as plt
+"""Auxiliary functions for introduction lecture."""
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 import numpy as np
 
 
 def plot_observed_choices(df):
-
+    """Plot choices per period."""
     df["Age"] = df.index.get_level_values("Period") + 16
     df["Choice"].cat.categories = ["Blue", "White", "Schooling", "Home"]
 
@@ -25,7 +26,7 @@ def plot_observed_choices(df):
 
 
 def plot_time_preference(deltas, edu_level):
-
+    """Plot time preferences."""
     fig, ax = plt.subplots(1, 1)
     ax.fill_between(deltas, edu_level)
 
@@ -37,7 +38,7 @@ def plot_time_preference(deltas, edu_level):
 
 
 def plot_policy_forecast(subsidies, edu_level):
-
+    """Plot policy forecast."""
     fig, ax = plt.subplots(1, 1)
     ax.fill_between(subsidies, edu_level)
 

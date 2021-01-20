@@ -1,5 +1,5 @@
+"""Auxiliary code for bootsrap."""
 import respy as rp
-
 from calibration_maximum_likelihood import run_bootstrap
 
 NUM_BOOTS = 1000

@@ -27,6 +27,7 @@ dependencies:
 - nbsphinx
 - pytest-black
 - pytest-flake8
+- pre-commit
 - pip:
     - black-nb
     - flake8-nb

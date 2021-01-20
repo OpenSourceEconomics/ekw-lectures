@@ -1,20 +1,17 @@
-"""
-Auxiliary file containing functions for plots for the notebook on simulated
-method of moments estimation.
-"""
+"""Auxiliary functions for plots in method of simulated moments lecture."""
 import copy
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import respy as rp
 
 
 def plot_criterion_params(params, param_names, criterion_msm, radius):
-    """
-    Plot criterion_msm for all values in params given radius (percentage deviation from value in
-    params dataframe).
-    """
+    """Plot criterion_msm for all values in params.
 
+    Plot given radius (percentage deviation from value in params dataframe).
+    """
     true_values = [params.loc[name, "value"] for name in param_names]
     deviations = [abs(val) * radius if abs(val) != 0 else radius for val in true_values]
 
@@ -44,7 +41,6 @@ def plot_criterion_params(params, param_names, criterion_msm, radius):
 
 def plot_moments_choices(moments_obs, moments_sim):
     """Plot choice frequencies for observed and simulated moments."""
-
     moments = [moments_obs, moments_sim]
     titles = ["Data Moments", "Simulated Moments"]
 
@@ -66,7 +62,6 @@ def plot_moments_choices(moments_obs, moments_sim):
 
 def plot_moments_wage(moments_obs, moments_sim):
     """Plot Wage Distribution for observed and simulated moments."""
-
     df_sim = pd.DataFrame(moments_sim["Wage Distribution"])
     df_obs = pd.DataFrame(moments_obs["Wage Distribution"])
 
@@ -115,8 +110,7 @@ def plot_chatter(seeds, kwargs):
 
 
 def plot_chatter_numagents_sim(seeds, num_agents, kwargs):
-    """Plot criterion function value at different seeds and numbers of agents
-    for the simulated sample."""
+    """Plot criterion at different seeds and numbers of agents (simulated sample)."""
     args = copy.deepcopy(kwargs)
     results = pd.DataFrame(columns=num_agents)
 
@@ -149,8 +143,9 @@ def plot_chatter_numagents_sim(seeds, num_agents, kwargs):
 
 
 def plot_chatter_numagents_both(seeds, num_agents, calc_moments, replace_nans, kwargs):
-    """Plot criterion function for different seeds and numbers of agents in simulated and
-    observed sample.
+    """Plot criterion function for different seeds and numbers of agents.
+
+    (simulated and observed sample)
     """
     args = copy.deepcopy(kwargs)
     # Initialize df to hold results.

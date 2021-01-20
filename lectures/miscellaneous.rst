@@ -8,4 +8,5 @@ Miscellaneous
 
    robinson-economy/notebook.ipynb
 
-We outline the model that serves as the running example throughout the lectures.
+We outline the model that serves as the running example throughout the
+lectures.

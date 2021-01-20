@@ -1,9 +1,9 @@
+"""Auxiliary functions for maximum likelihood lecture."""
 import warnings
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 import respy as rp
-
 from estimagic.optimization.optimize import maximize
 from pandas.core.common import SettingWithCopyWarning
 
@@ -11,14 +11,14 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 
 def get_bootstrap_sample(df, seed=None):
-
+    """Get bootstrap sample."""
     np.random.seed(seed)
 
     # Create the bootstrap sample
     identifiers = df["Identifier"].unique()
     boot_ids = np.random.choice(identifiers, size=len(identifiers))
 
-    agents = list()
+    agents = []
     for i, id_ in enumerate(boot_ids):
         agent = df[df["Identifier"] == id_]
         agent.loc[slice(None), "Identifier"] = i
@@ -29,7 +29,7 @@ def get_bootstrap_sample(df, seed=None):
 
 
 def run_bootstrap(df, params, options, constr, num_boots, is_perturb=False):
-
+    """Run bootstrap."""
     boot_params = pd.DataFrame(index=params.index)
 
     for iter_ in range(num_boots):

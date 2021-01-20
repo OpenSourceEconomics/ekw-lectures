@@ -1,12 +1,13 @@
+"""Auxiliary function for maximum-likelihood lecture."""
 import pickle as pkl
 
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 def plot_likelihood(rslts, params_base):
-
+    """Plot likelihood function."""
     for index, fvals in rslts.items():
         fig, ax = plt.subplots()
 
@@ -14,10 +15,7 @@ def plot_likelihood(rslts, params_base):
         grid = np.linspace(lower, upper, 20)
 
         ax.axvline(
-            params_base.loc[index, "value"],
-            color="#A9A9A9",
-            linestyle="--",
-            label="Baseline",
+            params_base.loc[index, "value"], color="#A9A9A9", linestyle="--", label="Baseline",
         )
         ax.plot(grid, np.array(fvals) / np.max(fvals))
         ax.set_title(index)
@@ -25,7 +23,7 @@ def plot_likelihood(rslts, params_base):
 
 
 def plot_score_function(norm_grid, norm_fds):
-
+    """Plot score function."""
     fig, ax = plt.subplots()
 
     ax.set_title(r"$\delta$")
@@ -38,7 +36,7 @@ def plot_score_function(norm_grid, norm_fds):
 
 
 def plot_computational_budget(grid, rslts):
-
+    """Plot computational budget example."""
     fig, ax = plt.subplots()
 
     ax.plot(grid, rslts)
@@ -50,7 +48,7 @@ def plot_computational_budget(grid, rslts):
 
 
 def plot_bootstrap_distribution():
-
+    """Plot bootstrap distribution."""
     index = ("delta", "delta")
     for is_perturb in [True, False]:
 
@@ -67,7 +65,7 @@ def plot_bootstrap_distribution():
 
 
 def plot_score_distribution():
-
+    """Plot score distribution."""
     rslts = pkl.load(open("material/score.delta.pkl", "rb"))
 
     fig, ax = plt.subplots()
@@ -77,7 +75,7 @@ def plot_score_distribution():
 
 
 def plot_smoothing_parameter(rslts, params_base, grid):
-
+    """Plot results for smoothing parameter."""
     fig, ax = plt.subplots()
 
     index = ("delta", "delta")

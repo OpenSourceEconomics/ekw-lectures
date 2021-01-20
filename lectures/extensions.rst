@@ -15,4 +15,3 @@ We showcase several extensions to the baseline model and its standard analysis.
 `Uncertainty quantification <https://media.giphy.com/media/kHfUyPaDUDBY11l4DZ/giphy.gif>`_
 
 ... work in progress
-
