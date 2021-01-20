@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""This module executes all notebooks. 
+"""This module executes all notebooks.
 
 It serves the main purpose to ensure that all can be executed and work proper
 independently.
