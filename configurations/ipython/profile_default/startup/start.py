@@ -6,4 +6,5 @@ ipython.magic("load_ext autoreload")
 ipython.magic("autoreload 2")
 
 import warnings
+
 warnings.simplefilter(action="ignore", category=RuntimeWarning)

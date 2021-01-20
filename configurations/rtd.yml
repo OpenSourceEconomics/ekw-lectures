@@ -1,0 +1,17 @@
+name: rtd-ekw-lectures
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+- pip
+- jupyterlab
+- sphinx>=1.4
+- nbsphinx
+- pip:
+    - sphinx_rtd_theme
+    - nbsphinx
+    - cairosvg
+    - sphinxcontrib-svg2pdfconverter[CairoSVG]
+    - parso

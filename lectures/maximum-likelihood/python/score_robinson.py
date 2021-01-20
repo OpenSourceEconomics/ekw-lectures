@@ -1,9 +1,10 @@
+"""Auxiliary functions for score distribution example."""
+import pickle as pkl
 from functools import partial
 
-from scipy.optimize import approx_fprime
-import pickle as pkl
-import respy as rp
 import numpy as np
+import respy as rp
+from scipy.optimize import approx_fprime
 
 
 INDICES = [("delta", "delta")]
@@ -14,12 +15,13 @@ EPS = np.sqrt(np.finfo(float).eps)
 
 
 def wrapper_crit_func(crit_func, options_base, params_base, index, values):
+    """Define wrapper for criterion function."""
     if isinstance(values, float):
         values = [values]
 
     params = params_base.copy()
 
-    fvals = list()
+    fvals = []
     for value in values:
         params.loc[index, "value"] = value
         fvals.append(options_base["simulation_agents"] * crit_func(params))
@@ -35,7 +37,7 @@ params_base, options_base, df = rp.get_example_model("robinson", with_data=True)
 
 for index in INDICES:
 
-    rslt = list()
+    rslt = []
     for iter_ in range(NUM_DRAWS):
 
         options = options_base.copy()

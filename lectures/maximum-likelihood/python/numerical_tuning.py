@@ -1,6 +1,7 @@
+"""Auxiliary code for numerial tuning."""
+import numpy as np
 import pandas as pd
 import respy as rp
-import numpy as np
 
 
 GRID_TAU = [0.01, 0.001, 0.0001, 0.00001, 0.000001, 0.0000001]
@@ -8,7 +9,7 @@ GRID_AGENTS = [100, 1000, 10000]
 GRID_DRAWS = [100, 1000, 10000]
 
 
-index = list()
+index = []
 for num_agents in GRID_AGENTS:
     for num_draws in GRID_DRAWS:
         for tau in GRID_TAU:
@@ -39,7 +40,7 @@ for num_agents in GRID_AGENTS:
             crit_func = rp.get_log_like_func(params_base, options, df)
             grid = np.concatenate((np.linspace(0.948, 0.952, 40), [delta_true]))
 
-            fvals = list()
+            fvals = []
             for value in grid:
                 params = params_base.copy()
                 params.loc[("delta", "delta"), "value"] = value

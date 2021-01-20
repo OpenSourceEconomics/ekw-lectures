@@ -1,7 +1,9 @@
+"""Auxiliary functions for Robinson Crusoe lecture."""
 import matplotlib.pyplot as plt
 
 
 def plot_choice_probabilities(df):
+    """Plot choice frequencies per period."""
     fig, ax = plt.subplots()
 
     df.groupby("Period").Choice.value_counts(normalize=True).unstack().plot.bar(stacked=True, ax=ax)
@@ -13,7 +15,7 @@ def plot_choice_probabilities(df):
 
 
 def plot_distibution_wages(df):
-
+    """Plot wage distribution per period."""
     for period in df.index.get_level_values("Period").unique():
 
         fig, ax = plt.subplots()
@@ -23,7 +25,7 @@ def plot_distibution_wages(df):
 
 
 def plot_average_wages_over_time(df):
-
+    """Plot average wages per period."""
     fig, ax = plt.subplots()
     ax.plot(df.groupby("Period")["Wage"].mean())
     ax.set_xlabel("Period")
