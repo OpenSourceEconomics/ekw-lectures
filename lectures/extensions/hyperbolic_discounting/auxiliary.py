@@ -1,27 +1,21 @@
 """Auxiliary functions for `hyperbolic_discounting.ipynb`"""
-
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import respy as rp
-
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-from mpl_toolkits.mplot3d import axes3d
-from mpl_toolkits.axes_grid1.colorbar import colorbar
 import seaborn as sns
-
-from dictionaries import policyDict
 from dictionaries import colorDict
 from dictionaries import labelDict
+from dictionaries import policyDict
 from dictionaries import styleDict
 from dictionaries import titleDict
+from mpl_toolkits.axes_grid1.colorbar import colorbar
+from mpl_toolkits.mplot3d import axes3d
 
 
 def compare_choice_probabilities(
-    df, 
-    policyDict=policyDict, 
-    colorDict=colorDict, 
-    labelDict=labelDict
+    df, policyDict=policyDict, colorDict=colorDict, labelDict=labelDict
 ):
     """Plot choice probabilities, comparing behavior of restricted and
     unrestricted agents.
@@ -44,10 +38,8 @@ def compare_choice_probabilities(
 
     # specify grid
     height_ratios = [1 / n_policies] * n_policies
-    gs = fig.add_gridspec(
-        n_policies, 2, height_ratios=height_ratios, width_ratios=[0.5, 1]
-    )
-    
+    gs = fig.add_gridspec(n_policies, 2, height_ratios=height_ratios, width_ratios=[0.5, 1])
+
     # conditional choices axis
     axs = [fig.add_subplot(gs[i, 0]) for i in range(0, n_policies)]
 
@@ -58,9 +50,7 @@ def compare_choice_probabilities(
 
         df.query("Policy == @policy").groupby("Period").Choice.value_counts(
             normalize=True
-        ).unstack().plot.bar(
-            stacked=True, rot=0, legend=False, width=1, color=colorDict, ax=ax
-        )
+        ).unstack().plot.bar(stacked=True, rot=0, legend=False, width=1, color=colorDict, ax=ax)
 
         # decluttering
         ax.xaxis.label.set_visible(False)
@@ -69,9 +59,7 @@ def compare_choice_probabilities(
         ax.yaxis.set_ticks([])
 
         # set policy name
-        ax.set_title(
-            policyDict[policy], pad=20, x=-0.095, y=0, weight="bold", fontsize=16
-        )
+        ax.set_title(policyDict[policy], pad=20, x=-0.095, y=0, weight="bold", fontsize=16)
 
         # set dashed line at t = 4, where agents are restricted
         if policy == "restricted":
@@ -84,7 +72,12 @@ def compare_choice_probabilities(
 
     # main axis (unconditional choice probabilities)
     df.groupby("Period").Choice.value_counts(normalize=True).unstack().plot.bar(
-        stacked=True, rot=90, legend=False, color=colorDict, width=1, ax=ax_main,
+        stacked=True,
+        rot=90,
+        legend=False,
+        color=colorDict,
+        width=1,
+        ax=ax_main,
     )
     ax_main.yaxis.tick_right()
     ax_main.tick_params(right=False, bottom=False)
@@ -104,94 +97,91 @@ def compare_choice_probabilities(
     # annotate time preference parameter
     delta = df["Discount_Rate"][0][0]
     beta = df["Present_Bias"][0][0]
-    plt.gcf().text(
-        0.125, 0.915, f"δ = {delta}, β = {beta}", fontstyle="oblique", fontsize=18
-    )
+    plt.gcf().text(0.125, 0.915, f"δ = {delta}, β = {beta}", fontstyle="oblique", fontsize=18)
 
     fig.subplots_adjust(wspace=0.025, hspace=0.05)
-    
+
     return fig
 
 
 def plot_heatmap3D(df_heatmap):
     """Plot 3D heatmap."""
 
-    #3D Plotting
+    # 3D Plotting
     fig = plt.figure(figsize=(25, 18))
     ax = plt.axes(projection="3d")
-    fig.set_facecolor('white')
-    ax.set_facecolor('white') 
-    
+    fig.set_facecolor("white")
+    ax.set_facecolor("white")
+
     # axes
     ax.w_xaxis.pane.fill = False
     ax.w_yaxis.pane.fill = False
     ax.w_zaxis.pane.fill = False
     ax.w_zaxis.grid(visible=False)
-    
+
     # labels
-    ax.yaxis.labelpad=30
-    ax.xaxis.labelpad=50
-    ax.zaxis.labelpad=30
-    
+    ax.yaxis.labelpad = 30
+    ax.xaxis.labelpad = 50
+    ax.zaxis.labelpad = 30
+
     ax.tick_params(axis="z", pad=15)
     ax.tick_params(axis="x", pad=20)
-    
+
     # data
-    df_pivot = df_heatmap.pivot_table(
-        values="val", 
-        index="beta", 
-        columns="delta")
-    
+    df_pivot = df_heatmap.pivot_table(values="val", index="beta", columns="delta")
+
     # coordinates
-    x = np.arange(0.944, 0.962, 0.002)  
+    x = np.arange(0.944, 0.962, 0.002)
     y = np.arange(0.75, 1.05, 0.01)
     x, y = np.meshgrid(x, y)
-    
+
     z = df_pivot.iloc[:, 11:].values
     ax.set_zticks([])
-    
+
     # colormap
     colormap = get_custom_cmap()
-    surf = ax.plot_surface(x,y,z, cmap=colormap)
+    surf = ax.plot_surface(x, y, z, cmap=colormap)
     format_ = mpl.ticker.ScalarFormatter(useOffset=False, useMathText=True)
     format_.set_powerlimits((3, 3))
     cb = colorbar(
-        surf, 
-        ax=ax, 
+        surf,
+        ax=ax,
         shrink=0.7,
-        aspect=10, 
+        aspect=10,
         ticks=[10_000] + [l for l in np.linspace(20_000, 140_000, 7)],
         format=format_,
     )
-    
+
     # labels' names
-    ax.set_xlabel(r'$\delta$', fontsize=20, rotation=270)
-    ax.set_ylabel(r'$\beta$', fontsize=20)
-    ax.set_zlabel('Criterion', fontsize=20, rotation=360)
+    ax.set_xlabel(r"$\delta$", fontsize=20, rotation=270)
+    ax.set_ylabel(r"$\beta$", fontsize=20)
+    ax.set_zlabel("Criterion", fontsize=20, rotation=360)
     ax.set_title("Heatmap criterion", weight="bold", fontsize=28, y=1.05)
-    
+
     # disable automatic rotation
-    ax.zaxis.set_rotate_label(False)  
-    
+    ax.zaxis.set_rotate_label(False)
+
     ax.view_init(50, 10)
 
     plt.show()
 
-    
+
 def get_custom_cmap():
     """Generate non-linear color map and sequential cmap to be used ... """
     steps = [0, 0.05, 0.2, 0.5, 1]
     hexcolors = ["#444572", "#577590", "#43aa8b", "#f9c74f", "#FAE450"]
     colors = list(zip(steps, hexcolors))
-    cmap = mpl.colors.LinearSegmentedColormap.from_list(
-            name="custom_cmap", colors=colors
-        )
+    cmap = mpl.colors.LinearSegmentedColormap.from_list(name="custom_cmap", colors=colors)
 
     return cmap
 
 
 def plot_counterfactual_predictions(
-    dataDict, mom, ylabel, styleDict=styleDict, titleDict=titleDict, 
+    dataDict,
+    mom,
+    ylabel,
+    styleDict=styleDict,
+    titleDict=titleDict,
 ):
     """Plot average predicted effect of tuition subsidy in each period, plus
     simulation noise, on specified moment.
@@ -202,7 +192,7 @@ def plot_counterfactual_predictions(
         ylabel (str): Label of y-axis.
         styleDict (dict): Dictionary to style plot elements.
         titleDict (dict): Dictionaries of titles.
-    
+
     Returns:
         Matplotlib.axes
 
@@ -210,28 +200,22 @@ def plot_counterfactual_predictions(
     fig, ax = plt.subplots(figsize=(15, 7.5))
 
     for key, data in dataDict.items():
-        
+
         data = data[mom]
 
-        ax.plot(
-            data["mean"], 
-            color="black", 
-            linewidth=2, 
-            label=" ",
-            **styleDict[key]["line"]
-        )
-        
+        ax.plot(data["mean"], color="black", linewidth=2, label=" ", **styleDict[key]["line"])
+
         fill = ax.fill_between(
             range(0, len(data["mean"])),
             np.add(data["mean"], data["std"]),
             np.subtract(data["mean"], data["std"]),
             label=titleDict[key],
-            **styleDict[key]["fill"]
+            **styleDict[key]["fill"],
         )
 
     ax.set_ylabel(ylabel, labelpad=20)
     ax.set_xlabel("Period", labelpad=10)
-    
+
     handles, labels = ax.get_legend_handles_labels()
     handles_positions = [[0, 1, 2], [3, 4, 5]]
     bbox_to_anchor = [(0.6, 0.3), (0.95, 0.3)]
@@ -245,7 +229,7 @@ def plot_counterfactual_predictions(
             title=title,
             title_fontsize=16,
             frameon=False,
-            **kwargs
+            **kwargs,
         )
         legend._legend_box.align = "left"
         plt.gca().add_artist(legend)
