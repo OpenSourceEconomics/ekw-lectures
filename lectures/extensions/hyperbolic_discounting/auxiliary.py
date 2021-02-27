@@ -7,6 +7,7 @@ from dictionaries import label_dict
 from dictionaries import policy_dict
 from dictionaries import style_dict
 from dictionaries import title_dict
+from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.axes_grid1.colorbar import colorbar
 
 
@@ -67,12 +68,7 @@ def compare_choice_probabilities(
 
     # main axis (unconditional choice probabilities)
     df.groupby("Period").Choice.value_counts(normalize=True).unstack().plot.bar(
-        stacked=True,
-        rot=90,
-        legend=False,
-        color=color_dict,
-        width=1,
-        ax=ax_main,
+        stacked=True, rot=90, legend=False, color=color_dict, width=1, ax=ax_main,
     )
     ax_main.yaxis.tick_right()
     ax_main.tick_params(right=False, bottom=False)
@@ -157,7 +153,7 @@ def plot_heatmap3d(df_heatmap):
 
     ax.view_init(50, 10)
 
-    plt.show()
+    return fig
 
 
 def get_custom_cmap():
@@ -171,11 +167,7 @@ def get_custom_cmap():
 
 
 def plot_counterfactual_predictions(
-    data_dict,
-    mom,
-    ylabel,
-    style_dict=style_dict,
-    title_dict=title_dict,
+    data_dict, mom, ylabel, style_dict=style_dict, title_dict=title_dict,
 ):
     """Plot predicted effect of tuition subsidy in each period.
 
