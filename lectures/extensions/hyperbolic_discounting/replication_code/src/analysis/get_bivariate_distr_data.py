@@ -1,4 +1,6 @@
-"""Given observed moments and weighting matrix in `OUT_ANALYSIS`, "msm_estimation",
+"""Generate values of Method of Simulated Moments criterion function.
+
+Given observed moments and weighting matrix in `OUT_ANALYSIS`, "msm_estimation",
 generate values of Method of Simulated Moments criterion function for combinations
 of discount factor and present bias values.
 
@@ -26,8 +28,7 @@ from tqdm import tqdm
 
 
 def get_bivariate_distribution(params, crit_func, grid_delta, grid_beta):
-    """Compute value of criterion function for different value of discount factor
-    and present bias parameter.
+    """Compute value of criterion function.
 
     Args:
         params (pd.DataFrame): DataFrame containing model parameters.
@@ -67,11 +68,11 @@ if __name__ == "__main__":
         options = yaml.safe_load(options)
 
     # get empirical moments
-    empirical_moments = _load_pickle(ppj("OUT_ANALYSIS", "msm_estimation", f"moments_hyp.pickle"))
+    empirical_moments = _load_pickle(ppj("OUT_ANALYSIS", "msm_estimation", "moments_hyp.pickle"))
 
     # get weighting matrix
     weighting_matrix = _load_pickle(
-        ppj("OUT_ANALYSIS", "msm_estimation", f"weighting_matrix_hyp.pickle")
+        ppj("OUT_ANALYSIS", "msm_estimation", "weighting_matrix_hyp.pickle")
     )
 
     calc_moments = {
