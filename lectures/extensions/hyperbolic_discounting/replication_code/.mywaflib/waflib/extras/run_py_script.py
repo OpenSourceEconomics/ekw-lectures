@@ -127,7 +127,7 @@ def apply_run_py_script(tg):
     for x in tg.to_list(getattr(tg, "deps", [])):
         node = tg.path.find_resource(x)
         if not node:
-            tg.bld.fatal("Could not find dependency %r for running %r" % (x, src_node.relpath()))
+            tg.bld.fatal(f"Could not find dependency {x!r} for running {src_node.relpath()!r}")
         tsk.dep_nodes.append(node)
     Logs.debug("deps: found dependencies %r for running %r", tsk.dep_nodes, src_node.abspath())
 

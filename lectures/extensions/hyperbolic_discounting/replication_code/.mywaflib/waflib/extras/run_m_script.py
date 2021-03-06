@@ -149,11 +149,9 @@ def apply_run_m_script(tg):
     for x in tg.to_list(getattr(tg, "deps", [])):
         node = tg.path.find_resource(x)
         if not node:
-            tg.bld.fatal("Could not find dependency %r for running %r" % (x, src_node.relpath()))
+            tg.bld.fatal(f"Could not find dependency {x!r} for running {src_node.relpath()!r}")
         tsk.dep_nodes.append(node)
-    Logs.debug(
-        "deps: found dependencies {!r} for running {!r}".format(tsk.dep_nodes, src_node.relpath())
-    )
+    Logs.debug(f"deps: found dependencies {tsk.dep_nodes!r} for running {src_node.relpath()!r}")
 
     # Bypass the execution of process_source by setting the source to an empty
     # list

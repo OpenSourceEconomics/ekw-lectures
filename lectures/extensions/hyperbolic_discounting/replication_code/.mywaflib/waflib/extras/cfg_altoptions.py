@@ -74,9 +74,7 @@ def check_cfg(conf, *k, **kw):
         try:
             assert os.path.isdir(path)
         except AssertionError:
-            raise Errors.ConfigurationError(
-                "%s_%s (%s) is not a folder!" % (package_lo, name, path)
-            )
+            raise Errors.ConfigurationError(f"{package_lo}_{name} ({path}) is not a folder!")
         return path
 
     root = getattr(Options.options, "%s_root" % package_lo, None)

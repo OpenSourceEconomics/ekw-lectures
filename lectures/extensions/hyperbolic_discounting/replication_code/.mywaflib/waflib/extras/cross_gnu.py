@@ -178,7 +178,7 @@ def xcheck_host_envar(conf, name, wafname=None):
         value = Utils.to_list(specific)
         conf.env[wafname] += value
         conf.msg(
-            "Will use cross-compilation %s from %s_%s" % (name, chost_envar, name),
+            f"Will use cross-compilation {name} from {chost_envar}_{name}",
             " ".join(quote(x) for x in value),
         )
         return
