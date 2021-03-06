@@ -168,9 +168,7 @@ class WriteProjectPathsPython(Task.Task):
             for name in sorted(self.env.PROJECT_PATHS.keys()):
                 val = self.env.PROJECT_PATHS[name]
                 if isinstance(val, Node.Node):
-                    out_file.write(
-                        "project_paths['{n}'] = r'{p}'\n".format(n=name, p=val.abspath())
-                    )
+                    out_file.write(f"project_paths['{name}'] = r'{val.abspath()}'\n")
                 else:
                     pass
             # Convenience function
@@ -188,7 +186,7 @@ class WriteProjectPathsMatlab(Task.Task):
             for name in sorted(self.env.PROJECT_PATHS.keys()):
                 val = self.env.PROJECT_PATHS[name]
                 if isinstance(val, Node.Node):
-                    out_file.write("projectpaths.{n} = '{p}';\n".format(n=name, p=val.abspath()))
+                    out_file.write(f"projectpaths.{name} = '{val.abspath()}';\n")
                 else:
                     pass
             out_file.write(PROJECT_PATHS_MATLAB_END)
@@ -328,10 +326,10 @@ class WriteProjectPathsStata(Task.Task):
     def _write_ado_paths(self, ado_paths, out_file):
         for name, val in ado_paths.items():
             if re.match("PERSONAL|PLUS", name):
-                out_file.write('sysdir set {} "{}/"\n'.format(name, val.abspath()))
+                out_file.write(f'sysdir set {name} "{val.abspath()}/"\n')
             else:
                 out_file.write(f'adopath ++ "{val.abspath()}/"\n')
-                out_file.write('adopath ++ "{}/"\n'.format(val.get_bld().abspath()))
+                out_file.write(f'adopath ++ "{val.get_bld().abspath()}/"\n')
         out_file.write("\n")
 
     def run(self):
@@ -340,7 +338,7 @@ class WriteProjectPathsStata(Task.Task):
             for name in sorted(self.env.PROJECT_PATHS.keys()):
                 val = self.env.PROJECT_PATHS[name]
                 if isinstance(val, Node.Node):
-                    out_file.write('global PATH_{n} "{p}/"\n'.format(n=name, p=val.abspath()))
+                    out_file.write(f'global PATH_{name} "{val.abspath()}/"\n')
                 elif name == "ADO" and isinstance(val, dict):
                     self._write_ado_paths(val, out_file)
 

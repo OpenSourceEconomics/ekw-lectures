@@ -75,7 +75,7 @@ def _make_texinputs_nodes(task_gen, init_texinputs_nodes):
                 else:
                     waflib.Logs.error(f"Invalid TEXINPUTS folder {path}")
             else:
-                waflib.Logs.error("Cannot resolve relative paths in TEXINPUTS {}".format(path))
+                waflib.Logs.error(f"Cannot resolve relative paths in TEXINPUTS {path}")
 
     return texinputs_nodes
 
@@ -271,7 +271,7 @@ class sphinx_build_task(waflib.Task.Task):
                 )
                 if node is None:
                     raise waflib.Errors.WafError(
-                        "Could not find Sphinx document dependency node: {}".format(dependency_path)
+                        f"Could not find Sphinx document dependency node: {dependency_path}"
                     )
                 dependency_nodes.add(node)
 
@@ -487,7 +487,7 @@ def apply_sphinx(task_gen):
     in_nodes_len = len(in_nodes)
     if in_nodes_len != 1:
         raise waflib.Errors.WafError(
-            "Sphinx task generator takes one input, {} given.".format(in_nodes_len)
+            f"Sphinx task generator takes one input, {in_nodes_len} given."
         )
 
     conf_node = in_nodes[0]

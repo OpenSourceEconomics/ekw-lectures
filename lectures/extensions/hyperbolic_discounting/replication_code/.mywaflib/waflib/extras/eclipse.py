@@ -199,7 +199,7 @@ class eclipse(Build.BuildContext):
             # Otherwise for Java/Python an external builder tool is created that will call waf build
             self.add(doc, buildCommand, "name", "org.eclipse.ui.externaltools.ExternalToolBuilder")
             dictionaries = {
-                "LaunchConfigHandle": "<project>/%s/%s" % (extbuilder_dir, extbuilder_name),
+                "LaunchConfigHandle": f"<project>/{extbuilder_dir}/{extbuilder_name}",
             }
             # The definition is in a separate directory XML file
             try:
@@ -257,9 +257,7 @@ class eclipse(Build.BuildContext):
             )
             builder.appendChild(launchConfiguration)
             # And write the XML to the file references before
-            self.write_conf_to_xml(
-                "%s%s%s" % (extbuilder_dir, os.path.sep, extbuilder_name), builder
-            )
+            self.write_conf_to_xml(f"{extbuilder_dir}{os.path.sep}{extbuilder_name}", builder)
 
         for k, v in dictionaries.items():
             self.addDictionary(doc, arguments, k, v)
@@ -373,7 +371,7 @@ class eclipse(Build.BuildContext):
             },
         )
 
-        waf_build = '"%s" %s' % (waf_executable, eclipse.fun)
+        waf_build = f'"{waf_executable}" {eclipse.fun}'
         waf_clean = '"%s" clean' % (waf_executable)
         self.add(
             doc,
@@ -423,7 +421,7 @@ class eclipse(Build.BuildContext):
                         doc,
                         option,
                         "listOptionValue",
-                        {"builtIn": "false", "value": '"${workspace_loc:/%s/%s}"' % (appname, i)},
+                        {"builtIn": "false", "value": f'"${{workspace_loc:/{appname}/{i}}}"'},
                     )
                 for i in cpppath:
                     self.add(
@@ -475,7 +473,7 @@ class eclipse(Build.BuildContext):
 
         def addTargetWrap(name, runAll):
             return self.addTarget(
-                doc, buildTargets, executable, name, '"%s" %s' % (waf_executable, name), runAll
+                doc, buildTargets, executable, name, f'"{waf_executable}" {name}', runAll
             )
 
         addTargetWrap("configure", True)
