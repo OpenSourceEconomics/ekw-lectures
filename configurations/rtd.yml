@@ -14,4 +14,4 @@ dependencies:
     - nbsphinx
     - cairosvg
     - sphinxcontrib-svg2pdfconverter[CairoSVG]
-    - parso
+    - parso>=0.8.1
