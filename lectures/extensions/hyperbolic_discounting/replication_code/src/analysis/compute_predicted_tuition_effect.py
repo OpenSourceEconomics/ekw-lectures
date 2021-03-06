@@ -1,19 +1,12 @@
-"""Compute effect of 2000 US dollar tuition subsidy predicted by different
-model specifications.
-
-"""
-import itertools
-
+"""Compute effect of 2000 US dollar tuition subsidy for different model specifications."""
 import numpy as np
-import pandas as pd
 from bld.project_paths import project_paths_join as ppj
 from src.library.housekeeping import _load_pickle
 from src.library.housekeeping import _save_to_pickle
 
 
 def compute_subsidy_effect_on_experience(data_without_subsidy, data_with_subsidy):
-    """Compute effect of subsidy subsidy on occupational experience (i.e.
-        education, occupation A and occupation B).
+    """Compute effect of subsidy subsidy on occupational experience.
 
     Args:
         data_without_subsidy (list of dataset): List of dataset, without subsidy
@@ -26,19 +19,19 @@ def compute_subsidy_effect_on_experience(data_without_subsidy, data_with_subsidy
         dict
 
     """
-    effectDict = {"Experience_Edu": {}, "Experience_A": {}, "Experience_B": {}}
+    effect_dict = {"Experience_Edu": {}, "Experience_A": {}, "Experience_B": {}}
 
-    for i, mom in enumerate(["Experience_Edu", "Experience_A", "Experience_B"]):
+    for mom in ["Experience_Edu", "Experience_A", "Experience_B"]:
 
         subsidy_effect = compute_subsidy_effect(data_without_subsidy, data_with_subsidy, mom)
 
         mean = {"mean": subsidy_effect.mean(axis=0)}
         std = {"std": subsidy_effect.std(axis=0)}
 
-        effectDict[mom].update(mean)
-        effectDict[mom].update(std)
+        effect_dict[mom].update(mean)
+        effect_dict[mom].update(std)
 
-    return effectDict
+    return effect_dict
 
 
 def compute_subsidy_effect(data_without_subsidy, data_with_subsidy, moment):
@@ -55,14 +48,14 @@ def compute_subsidy_effect(data_without_subsidy, data_with_subsidy, moment):
         numpy.ndarray
 
     """
-    momDict = {}
+    mom_dict = {}
 
     keys = ["mom_without_subsidy", "mom_with_subsidy"]
 
     for data, key in zip([data_without_subsidy, data_with_subsidy], keys):
-        momDict[key] = np.array([df[(moment, "mean")] for df in data])
+        mom_dict[key] = np.array([df[(moment, "mean")] for df in data])
 
-    effect = momDict["mom_with_subsidy"] - momDict["mom_without_subsidy"]
+    effect = mom_dict["mom_with_subsidy"] - mom_dict["mom_without_subsidy"]
 
     return effect
 

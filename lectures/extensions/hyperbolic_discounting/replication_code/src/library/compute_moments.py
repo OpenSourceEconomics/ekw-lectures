@@ -1,10 +1,5 @@
-"""Functions shared across modules, mostly useful to compute moments from the
-'empirical' datasets or other quantities needed to obtain the criterion
-function (e.g. the weighting matrix).
-
-"""
+"""Functions shared across modules."""
 import numpy as np
-import pandas as pd
 import respy as rp
 from respy.method_of_simulated_moments import _harmonize_input
 
@@ -90,6 +85,7 @@ def get_weighting_matrix(
     replace_missing_weights=None,
 ):
     """Compute a diagonal weighting matrix for estimation with MSM.
+
     Weights are the inverse bootstrap variances of the observed sample moments.
 
     Args:

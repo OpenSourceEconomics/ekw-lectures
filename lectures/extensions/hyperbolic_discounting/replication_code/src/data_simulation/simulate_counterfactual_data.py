@@ -1,4 +1,6 @@
-"""Get counterfactual prediction for 2000 US dollars tuition subsidy for
+"""Get counterfactual prediction for 2000 US dollars tuition subsidy.
+
+Get counterfactual prediction for 2000 US dollars tuition subsidy for
 different parametrization of the model with hyperbolic discounting and choice
 restrictions based on Keane and Wolpin (1994) :cite:`KeaneWolpin1994`.
 
@@ -12,7 +14,6 @@ competing parametrizations differ.
 import numpy as np
 import pandas as pd
 import respy as rp
-import yaml
 from bld.project_paths import project_paths_join as ppj
 from src.library.housekeeping import _save_to_pickle
 from src.library.housekeeping import _temporary_working_directory
@@ -71,7 +72,6 @@ def simulate_life_cycle_df(params, options, sim_seed, sol_seed, col_to_keep):
         pd.DataFrame.
 
     """
-
     with _temporary_working_directory(snippet=f"{sim_seed}_{sol_seed}"):
         options["simulation_seed"] = int(sim_seed)
         options["solution_seed"] = int(sol_seed)
@@ -94,13 +94,13 @@ if __name__ == "__main__":
     params, options = rp.get_example_model("kw_94_three", with_data=False)
     options["simulation_agents"] = 10_000
 
-    paramsDict = {
+    params_dict = {
         "true": {"delta": 0.95, "beta": 0.8},
         "miss_exp": {"delta": 0.938, "beta": 1},
         "miss_1": {"delta": 0.948, "beta": 0.83},
     }
 
-    for model, time_params in paramsDict.items():
+    for model, time_params in params_dict.items():
 
         # no tuition subsidy
         params.loc[("delta", "delta"), "value"] = time_params["delta"]

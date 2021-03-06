@@ -50,9 +50,9 @@ if __name__ == "__main__":
         n_observations_per_sample=5000,
     )
 
-    for object, name in zip([weighting_matrix, empirical_moments], ["weighting_matrix", "moments"]):
+    for res, name in zip([weighting_matrix, empirical_moments], ["weighting_matrix", "moments"]):
 
         _save_to_pickle(
-            object,
+            res,
             ppj("OUT_ANALYSIS", "msm_estimation", f"{name}_hyp.pickle"),
         )

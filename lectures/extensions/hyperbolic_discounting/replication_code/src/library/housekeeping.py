@@ -9,7 +9,8 @@ from time import time
 
 @contextlib.contextmanager
 def _temporary_working_directory(snippet):
-    """Changes working directory and returns to previous on exit.
+    """Change working directory and returns to previous on exit.
+
     The name of the temporary directory is 'temp_process-id_timestamp_snippet'
     The directory is deleted upon exit.
 
@@ -33,12 +34,12 @@ def _temporary_working_directory(snippet):
 def _load_pickle(input_file):
     """Load object from pickle."""
     with open(input_file, "rb") as input_file:
-        object = pickle.load(input_file)
+        output = pickle.load(input_file)
 
-    return object
+    return output
 
 
-def _save_to_pickle(object, output_file):
+def _save_to_pickle(input_object, output_file):
     """Save object to pickle."""
     with open(output_file, "wb") as handle:
-        pickle.dump(object, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        pickle.dump(input_object, handle, protocol=pickle.HIGHEST_PROTOCOL)

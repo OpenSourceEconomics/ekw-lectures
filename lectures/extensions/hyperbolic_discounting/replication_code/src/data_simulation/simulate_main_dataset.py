@@ -1,7 +1,4 @@
-"""Simulate main datasets for the two different specifications of the model
-based on :cite:`KeaneWolpin1994` (KW94).
-
-"""
+"""Simulate main datasets for specifications of model based on :cite:`KeaneWolpin1994` (KW94)."""
 import pandas as pd
 import respy as rp
 import yaml
