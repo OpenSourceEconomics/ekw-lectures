@@ -8,7 +8,6 @@ from dictionaries import policy_dict
 from dictionaries import style_dict
 from dictionaries import title_dict
 from mpl_toolkits.axes_grid1.colorbar import colorbar
-from mpl_toolkits.mplot3d import Axes3D
 
 
 def compare_choice_probabilities(
