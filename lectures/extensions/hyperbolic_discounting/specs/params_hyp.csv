@@ -1,0 +1,37 @@
+category;name;value;comment
+delta;delta;0.95;Discount factor
+beta;beta;0.8;Present bias
+wage_a;constant;8;Log of rental price
+wage_a;exp_edu;0.07;Return to an additional year of schooling
+wage_a;exp_a;0.055;Return to same sector experience
+wage_a;exp_a_square;0;Return to same sector, quadratic experience
+wage_a;exp_b;0;Return to other sector experience
+wage_a;exp_b_square;0;Return to other sector, quadratic experience
+nonpec_a;restriction_on_a;-1_000_000;Penalty for going to A without at least 12 years of education
+wage_b;constant;7.9;Log of rental price
+wage_b;exp_edu;0.07;Return to an additional year of schooling
+wage_b;exp_b;0.06;Return to same sector experience
+wage_b;exp_b_square;0;Return to same sector, quadratic experience
+wage_b;exp_a;0.055;Return to other sector experience
+wage_b;exp_a_square;0;Return to other sector, quadratic experience
+nonpec_b;restriction_on_b;-1_000_000;Penalty for going to B without at least 14 years of education
+nonpec_edu;constant;5000;Constant reward for choosing education
+nonpec_edu;at_least_twelve_exp_edu;-5000;Cost of going to college (tuition, etc.)
+nonpec_edu;not_edu_last_period;-20000;Penalty for going back to school
+nonpec_home;constant;21500;Constant reward of non-market alternative
+shocks_sdcorr;sd_a;1;Element 1,1 of standard-deviation/correlation matrix
+shocks_sdcorr;sd_b;1;Element 2,2 of standard-deviation/correlation matrix
+shocks_sdcorr;sd_edu;7000;Element 3,3 of standard-deviation/correlation matrix
+shocks_sdcorr;sd_home;8500;Element 4,4 of standard-deviation/correlation matrix
+shocks_sdcorr;corr_b_a;0.5;Element 2,1 of standard-deviation/correlation matrix
+shocks_sdcorr;corr_edu_a;0;Element 3,1 of standard-deviation/correlation matrix
+shocks_sdcorr;corr_edu_b;0;Element 3,2 of standard-deviation/correlation matrix
+shocks_sdcorr;corr_home_a;0;Element 4,1 of standard-deviation/correlation matrix
+shocks_sdcorr;corr_home_b;0;Element 4,2 of standard-deviation/correlation matrix
+shocks_sdcorr;corr_home_edu;-0.5;Element 4,3 of standard-deviation/correlation matrix
+observable_policy_veryrestricted;probability;0.33;Probability of experiencing two choice restrictions
+observable_policy_restricted;probability;0.33;Probability of experiencing choice restriction
+observable_policy_unrestricted;probability;0.34;Probability of not experiencing choice restriction
+lagged_choice_1_edu;probability;1;Probability that the first lagged choice is education
+initial_exp_edu_10;probability;1;Probability that the initial level of education is 10
+maximum_exp;edu;20;Maximum level of experience for education

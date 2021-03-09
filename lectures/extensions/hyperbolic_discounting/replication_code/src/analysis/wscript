@@ -1,0 +1,50 @@
+#! python
+
+
+def build(ctx):
+
+    # observed moments and weighting matrix
+    ctx(
+        features="run_py_script",
+        source="get_moments_and_matrix.py",
+        deps=ctx.path_to(ctx, "OUT_DATA", "df_hyp.pickle"),
+        target=[
+            ctx.path_to(ctx, "OUT_ANALYSIS", "msm_estimation", f"weighting_matrix_hyp.pickle"),
+            ctx.path_to(ctx, "OUT_ANALYSIS", "msm_estimation", f"moments_hyp.pickle"),
+        ],
+    )
+
+    # bivariate distribution
+    ctx(
+        features="run_py_script",
+        source="get_bivariate_distr_data.py",
+        deps=[
+            ctx.path_to(ctx, "OUT_ANALYSIS", "msm_estimation", "weighting_matrix_hyp.pickle"),
+            ctx.path_to(ctx, "OUT_ANALYSIS", "msm_estimation", "moments_hyp.pickle"),
+        ],
+        target=ctx.path_to(
+            ctx,
+            "OUT_ANALYSIS",
+            "heatmap.csv",
+        ),
+    )
+
+    # counterfactual analysis
+    models = []
+    for model in ["true", "miss_exp", "miss_1"]:
+        for suffix in ["", "_subsidy"]:
+            models.append(model + suffix)
+
+    ctx(
+        features="run_py_script",
+        source="compute_predicted_tuition_effect.py",
+        deps=[
+            ctx.path_to(ctx, "OUT_DATA", "counterfactual_data", f"data_{model}.pickle")
+            for model in models
+        ],
+        target=ctx.path_to(
+            ctx,
+            "OUT_ANALYSIS",
+            "subsidy_effect.pickle",
+        ),
+    )

@@ -1,0 +1,37 @@
+#! python
+
+
+def build(ctx):
+
+    # generate main dataset
+    ctx(
+        features="run_py_script",
+        source="simulate_main_dataset.py",
+        deps=[
+            ctx.path_to(ctx, "IN_MODEL_SPECS", "params_hyp.csv"),
+            ctx.path_to(ctx, "IN_MODEL_SPECS", "options_hyp.yaml"),
+        ],
+        target=ctx.path_to(ctx, "OUT_DATA", "df_hyp.pickle"),
+    )
+
+    # generate counterfactual data
+    for model in ["true", "miss_exp", "miss_1"]:
+        for i in ["", "_subsidy"]:
+            ctx(
+                features="run_py_script",
+                source="simulate_counterfactual_data.py",
+                target=[
+                    ctx.path_to(
+                        ctx,
+                        "OUT_DATA",
+                        "counterfactual_data",
+                        f"data_{model}{i}.pickle",
+                    ),
+                    ctx.path_to(
+                        ctx,
+                        "OUT_DATA",
+                        "counterfactual_data",
+                        f"data_{model}{i}.pickle",
+                    ),
+                ],
+            )
