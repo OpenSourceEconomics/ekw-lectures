@@ -1,4 +1,4 @@
-.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_no_type_RGB.svg
+.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_no_type_RGB.svg
    :height: 25px
 
 |logo| EKW lectures
@@ -9,6 +9,6 @@ This repository contains several lectures that use the ``respy`` package for the
 Supported by
 ------------
 
-.. image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_RGB.svg
+.. image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_RGB.svg
     :width: 22 %
     :target: https://github.com/OpenSourceEconomics

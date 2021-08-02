@@ -1,4 +1,4 @@
-.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_no_type_RGB.svg
+.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_no_type_RGB.svg
   :width: 4 %
 
 |logo| EKW lectures
@@ -36,7 +36,7 @@ This repository contains several lectures that use the ``respy`` package to solv
 Powered by
 ==========
 
-.. image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_RGB.svg
+.. image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_RGB.svg
   :width: 22 %
   :target: https://open-econ.org
 
