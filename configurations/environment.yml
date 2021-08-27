@@ -38,5 +38,3 @@ dependencies:
     - sphinxcontrib-bibtex
     - sphinxcontrib-svg2pdfconverter[CairoSVG]
     - Py-BOBYQA
-
-
