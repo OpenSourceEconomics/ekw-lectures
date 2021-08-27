@@ -14,7 +14,7 @@ dependencies:
 - matplotlib
 - seaborn
 - scipy
-- estimagic>=1.2.0
+- estimagic
 - black
 - numba
 - flake8
