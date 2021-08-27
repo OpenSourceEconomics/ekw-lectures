@@ -14,17 +14,17 @@ dependencies:
 - matplotlib
 - seaborn
 - scipy
-- estimagic
+- estimagic>=1.2.0
 - black
 - numba
 - flake8
 - doc8
-- pyarrow
 - restructuredtext_lint
 - tox-conda
 - respy>=2.1.1
 - sphinx>=1.4
 - nbsphinx
+- pyarrow
 - pytest-black
 - pytest-flake8
 - pre-commit
@@ -37,3 +37,6 @@ dependencies:
     - cairosvg
     - sphinxcontrib-bibtex
     - sphinxcontrib-svg2pdfconverter[CairoSVG]
+    - Py-BOBYQA
+
+
