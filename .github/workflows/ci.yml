@@ -15,6 +15,9 @@ jobs:
            environment-file: configurations/environment.yml
            python-version: 3.7
            auto-activate-base: false
+           mamba-version: "*"
+           channels: defaults, opensourceeconomics, conda-forge
+           channel-priority: true
     - name: check notebook formatting
       shell: bash -l {0}
       run: |
