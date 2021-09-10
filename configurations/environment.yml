@@ -1,14 +1,14 @@
 name: ekw-lectures
 
 channels:
+  - conda-forge
   - defaults
   - opensourceeconomics
-  - conda-forge
 
 dependencies:
 - pip
 - numpy
-- pandas>=0.24
+- pandas
 - pytest
 - jupyterlab
 - matplotlib
@@ -22,7 +22,7 @@ dependencies:
 - restructuredtext_lint
 - tox-conda
 - respy>=2.1.1
-- sphinx>=1.4
+- sphinx
 - nbsphinx
 - pyarrow
 - pytest-black
