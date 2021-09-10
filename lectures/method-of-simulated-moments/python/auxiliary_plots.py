@@ -50,11 +50,12 @@ def plot_moments_choices(moments_obs, moments_sim):
         plt.subplot(1, 2, idx + 1)
         plt.ylim((0, 1))
         plt.title(titles[idx])
-        plt.plot(df)
+        plt.plot(df["hammock"], color="tab:orange", label="hammock")
+        plt.plot(df["fishing"], color="tab:blue", label="fishing")
         plt.xlabel("Period")
         plt.ylabel("Choice Frequencies")
         if idx == 1:
-            plt.legend(df.columns, loc="best")
+            plt.legend(loc="best")
 
     plt.tight_layout()
     plt.show()

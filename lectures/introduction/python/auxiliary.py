@@ -21,7 +21,6 @@ def plot_observed_choices(df):
     ax.set_ylabel("Share (in %)")
     ax.set_ylim(0, 100)
 
-    ax.set_xticklabels(np.arange(16, 55, 5), rotation="horizontal")
     ax.xaxis.set_ticks(np.arange(0, 40, 5))
 
 

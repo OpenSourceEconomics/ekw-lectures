@@ -13,8 +13,8 @@ jobs:
       with:
            activate-environment: ekw-lectures
            environment-file: configurations/environment.yml
-           python-version: 3.6
            auto-activate-base: false
+           mamba-version: "*"
     - name: check notebook formatting
       shell: bash -l {0}
       run: |
