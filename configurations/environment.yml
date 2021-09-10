@@ -28,6 +28,7 @@ dependencies:
 - pytest-black
 - pytest-flake8
 - pre-commit
+- python_abi>=3.9
 - pip:
     - black-nb
     - flake8-nb
