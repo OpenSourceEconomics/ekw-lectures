@@ -1,9 +1,9 @@
 name: ekw-lectures
 
 channels:
-  - conda-forge
   - defaults
   - opensourceeconomics
+  - conda-forge
 
 dependencies:
 - pip
