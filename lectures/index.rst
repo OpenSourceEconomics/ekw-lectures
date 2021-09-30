@@ -41,7 +41,7 @@ Reviews
 
 * **Galiani, S., Pantano, J. (2021)**. `Structural models: Inception and frontier <https://www.nber.org/papers/w28698>`_, *(National Bureau of Economic Research Working Papers No. 28698)*.
 
-* **Keane, M., Todd, P., and Wolpin, K. I. (2011)**, `The structural estimation of behavioral models: Discrete choice dynamic programming methods and applications <https://econpapers.repec.org/bookchap/eeelabchp/4-04.htm>`_. In *Ashenfelter, O. and Card, D. eds.* (pp. 331-461), Elsevier.
+* **Keane, M., Todd, P., and Wolpin, K. I. (2011)**. `The structural estimation of behavioral models: Discrete choice dynamic programming methods and applications <https://econpapers.repec.org/bookchap/eeelabchp/4-04.htm>`_. In *Ashenfelter, O. and Card, D. eds.* (pp. 331-461), Elsevier.
 
 * **Low, H., Meghir, C. (2017)**. `The use of structural models in econometrics <https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33>`_, *Journal of Economic Perspectives*, 31(2): 33-58.
 
@@ -53,11 +53,11 @@ Powered by
 |space| |space| |OSE| |space| |Nuvolos| |space| |space|
 
 .. |OSE| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_RGB.svg
-  :width: 22 %
+  :width: 24 %
   :target: https://open-econ.org
 
 .. |Nuvolos| image:: _static/images/nuvolos_sidebar_logo_acblue.svg
-  :width: 8 %
+  :width: 10 %
   :target: https://nuvolos.cloud
 
 .. |space| raw:: html
